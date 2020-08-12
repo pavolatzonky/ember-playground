@@ -1,0 +1,75 @@
+@mixin borrower-application-section() {
+  padding: 0 1rem;
+
+  max-width: map_get($breakpoints, 'small');
+  margin: 0 auto;
+
+  @include media('screen', '>=medium') {
+    padding: 2rem;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    @apply .mb-8 .mx-auto .text-center;
+  }
+
+  &__error {
+    margin: map-get($gaps, 'medium') auto;
+    color: map-get($colors, 'text-fail');
+    font-size: map-get($font-sizes, 'medium');
+    text-align: center;
+  }
+
+  &__continue {
+    @apply .mt-16 .mb-0 .mx-auto;
+  }
+
+  .row {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: map_get($gaps, 'medium');
+  }
+  .column-1,
+  .column-2 {
+    flex: 100%;
+    padding-bottom: map-get($gaps, 'large');
+  }
+
+  @include media('screen', '>=small') {
+    .row {
+      .label {
+        margin-top: map_get($gaps, 'medium');
+        text-align: right;
+        width: 110px;
+        font-weight: 500;
+        padding-right: map_get($gaps, 'xmedium');
+      }
+
+      .zip-code {
+        display: flex;
+      }
+
+      .gap-24 {
+        display: flex;
+        gap: 0.1rem;
+      }
+    }
+
+    .column-1 {
+      flex: 1;
+    }
+
+    .column-2 {
+      flex: 2;
+    }
+
+    .column-1,
+    .column-2 {
+      display: flex;
+    }
+  }
+}

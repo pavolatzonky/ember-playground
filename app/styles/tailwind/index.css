@@ -1,0 +1,12 @@
+/* purgecss start ignore */
+@import 'tailwindcss/base';
+@import './base/index.css';
+@import 'tailwindcss/components';
+@import './components/index.css';
+
+/* purgecss end ignore */
+@import 'tailwindcss/utilities';
+@import './utilities/index.css';
+
+/* scoped styles */
+@import './modules.css';

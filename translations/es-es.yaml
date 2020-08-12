@@ -1,0 +1,20 @@
+errors:
+  invalid: '{description} no es válido.'
+  exclusion: '{description} está reservado.'
+  inclusion: '{description} no está en la lista.'
+  description: Este valor
+inflections:
+  phrases:
+    invested-people: '{count, plural, =1 {1 persona invirtió} =2 {2 personas invirtió}
+      =3 {3 personas invirtió} =4 {4 personas invirtió} other {invirtió {count} personas}}'
+  investors: '{count, plural, =1 {inversor} =2 {inversores} =3 {inversores} =4 {inversores}
+    other {inversores}}'
+  people: '{count, plural, =1 {persona} =2 {personas} =3 {personas} =4 {personas}
+    other {personas}}'
+  years: '{count, plural, =1 {año} =2 {años} =3 {años} =4 {años} other {años}}'
+  months: '{count, plural, =1 {mes} =2 {meses} =3 {meses} =4 {meses} other {meses}}'
+  days: '{count, plural, =1 {día} =2 {días} =3 {días} =4 {días} other {días}}'
+  hours: '{count, plural, =1 {hora} =2 {horas} =3 {horas} =4 {horas} other {horas}}'
+  minutes-till: '{count, plural, =1 {minuto} other {minutos}}'
+  minutes: '{count, plural, =1 {minuto} =2 {minutos} =3 {minutos} =4 {minutos} other
+    {minutos}}'

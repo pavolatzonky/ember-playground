@@ -1,0 +1,314 @@
+@mixin box-shadow($type: default, $additional...) {
+  $result: map_get($shadows, 'box-#{$type}');
+
+  @if $additional {
+    @each $shadow in $additional {
+      $result: $result, map_get($shadows, 'box-#{$shadow}');
+    }
+  }
+
+  box-shadow: $result;
+}
+
+@mixin clearfix() {
+  &:after {
+    content: '.';
+    display: block;
+    overflow: hidden;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+}
+
+@mixin col-base() {
+  float: left;
+  min-height: 1px;
+}
+
+@mixin col() {
+  @include col-base();
+
+  padding-left: (map_get($grid-config, 'gutter-width') / 2);
+  padding-right: (map_get($grid-config, 'gutter-width') / 2);
+}
+
+@mixin footer-padding() {
+  padding-bottom: 50px;
+
+  @include media('screen', '>=medium', 'height>small') {
+    padding-bottom: 428px;
+  }
+}
+
+@mixin link-colors(
+  $default,
+  $hover: null,
+  $visited: null,
+  $active: null,
+  $focus: null
+) {
+  @if $hover == null {
+    $hover: $default;
+  }
+  @if $visited == null {
+    $visited: $default;
+  }
+  @if $active == null {
+    $active: $default;
+  }
+  @if $focus == null {
+    $focus: $default;
+  }
+
+  color: $default;
+  &:visited {
+    color: $visited;
+  }
+  &:active {
+    color: $active;
+  }
+  &:hover {
+    color: $hover;
+  }
+  &:focus {
+    color: $focus;
+  }
+}
+
+@mixin link-no-decoration() {
+  &,
+  &:visited,
+  &:active,
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+}
+
+@mixin button-as-link(
+  $default,
+  $hover: null,
+  $visited: null,
+  $active: null,
+  $focus: null,
+  $decoration: underline
+) {
+  @include link-colors($default, $hover, $visited, $active, $focus);
+  background: transparent;
+  text-decoration: $decoration;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  font: inherit;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+@mixin overlay() {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+
+  &__close {
+    @include link-colors(#000000);
+
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    svg {
+      font-size: map_get($font-sizes, 'large');
+      vertical-align: sub;
+      color: map_get($color-brand, 'orange');
+    }
+  }
+}
+
+@mixin background-skewed(
+  $left-to-right: true,
+  $color: #f1f1f1,
+  $deg: 5,
+  $control-overflow: true,
+  $control-margin: true,
+  $top-only: false
+) {
+  $rotate: #{$deg}deg;
+
+  @if $left-to-right != true {
+    $rotate: -#{$deg}deg;
+  }
+
+  @if $top-only {
+    $margin-size-bottom: 0;
+  }
+
+  & {
+    position: relative;
+
+    @if $control-margin {
+      margin: (abs($deg) * 2 + 4vh) 0 (abs($deg) * 2 + 4vh) 0;
+
+      @include media('landscape', '>=2400px') {
+        margin: (abs($deg) * 1%) 0 (abs($deg) * 1%) 0;
+      }
+
+      @if $top-only {
+        margin: (abs($deg) * 2 + 2vh) 0 0 0;
+
+        @include media('landscape', '>=2400px') {
+          margin: (abs($deg) * 1%) 0 0 0;
+        }
+      }
+    }
+
+    @if $control-overflow {
+      overflow: visible;
+    }
+  }
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: rotate($rotate) translate(-50%, -50%);
+    transform-origin: 0 50%;
+    z-index: 0;
+    width: 110vh;
+    background-color: $color;
+
+    @if $top-only {
+      transform: rotate($rotate) translate(-50%, -100%);
+
+      @include media('screen', '>=2400px') {
+        transform: translate(-50%, -100%);
+      }
+    }
+
+    @if $left-to-right {
+      top: 53%;
+      height: 110%;
+
+      @include media('screen', '>=small') {
+        height: 120%;
+      }
+
+      @if $top-only {
+        height: 55%;
+
+        @include media('screen', '>=small') {
+          height: 60%;
+        }
+      }
+    } @else {
+      top: 52%;
+      height: 115%;
+
+      @include media('screen', '>=small') {
+        height: 122%;
+      }
+
+      @if $top-only {
+        height: 57%;
+
+        @include media('screen', '>=small') {
+          height: 60%;
+        }
+      }
+    }
+
+    @include media('screen', 'landscape') {
+      width: 130vw;
+    }
+  }
+
+  @if $top-only {
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 25%;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 0;
+      background-color: $color;
+    }
+  }
+
+  * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+@mixin dotted-list {
+  width: 100%;
+
+  > li {
+    margin-bottom: 1rem;
+    span {
+      font-weight: normal;
+    }
+    > span:first-of-type {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+  }
+  @include media('screen', '>=xsmall') {
+    > li {
+      margin-bottom: 0.5rem;
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+
+      > span {
+        flex-shrink: 0;
+        font-weight: bold;
+        white-space: nowrap;
+        margin: 0;
+      }
+
+      > span:first-of-type {
+        overflow: hidden;
+        display: inline;
+        flex-shrink: 10;
+        margin-right: 0.5rem;
+
+        &:after {
+          margin-left: 0.5rem;
+          letter-spacing: 2px;
+          content: '.........................................................................................................................';
+        }
+      }
+    }
+  }
+}
+
+@mixin tooltip-message {
+  text-align: center;
+  font-weight: 400;
+  line-height: 1.7;
+  font-family: map_get($font-families, 'sans-serif');
+}
+
+@mixin default-outline {
+  outline: 1px dotted map_get($colors, 'gray-2');
+  outline: 5px auto -webkit-focus-ring-color;
+}

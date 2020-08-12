@@ -1,0 +1,78 @@
+@mixin investor-application-modal() {
+  a {
+    @include button-as-link(map_get($colors, 'gray-1'));
+  }
+
+  h2,
+  h3,
+  h4,
+  p,
+  ul,
+  ol {
+    text-align: left;
+  }
+
+  h2 {
+    @apply .typography-h2 .mt-4 .mb-2;
+  }
+
+  h3 {
+    @apply .typography-h3 .my-2;
+  }
+
+  p {
+    margin: 0 0 10px;
+    font-size: map_get($font-sizes, 'medium');
+  }
+
+  ol,
+  ul {
+    @apply .list-outside .pl-10;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+  }
+
+  ol {
+    list-style-type: lower-alpha;
+  }
+
+  li {
+    &:before {
+      content: '';
+      display: none;
+    }
+
+    ul {
+      list-style-type: circle;
+    }
+  }
+
+  ul {
+    list-style-type: disc;
+  }
+
+  table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+    border-spacing: 0;
+
+    th,
+    td {
+      padding: 8px;
+      line-height: 1.4;
+      vertical-align: top;
+      border-top: 1px solid #ddd;
+      text-align: left;
+      font-size: map_get($font-sizes, 'small');
+    }
+  }
+
+  .btn {
+    margin-top: 20px;
+    width: 227px;
+  }
+}

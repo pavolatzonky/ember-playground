@@ -1,0 +1,79 @@
+inflections:
+  minutes:
+    '{count, plural, =1 {minute} other {minutes}}'
+  minutes-till: '{count, plural, =1 {minute} other {minutes}}'
+  hours:
+    '{count, plural, =1 {hour} other {hours}}'
+  days: '{count, plural, =1 {day} other {days}}'
+  months:
+    '{count, plural, =1 {month} other {months}}'
+  years:
+    '{count, plural, =1 {year} other {years}}'
+  people:
+    '{count, plural, =1 {person} other {people}}'
+  investors:
+    '{count, plural, =1 {investor} other {investors}}'
+  phrases:
+    invested-people:
+      '{count, plural, =1 {1 person invested} other {{count} people invested}}'
+errors:
+  description: 'This value'
+  inclusion: '{description} is not listed.'
+  exclusion: '{description} is reserved.'
+  invalid: '{description} is invalid.'
+  confirmation: '{description} does not correspond to {on}.'
+  accepted: '{description} must be accepted.'
+  empty: '{description} must be filled in.'
+  blank: 'This field is required.'
+  present: '{description} must be empty.'
+  collection: '{description} must be a collection.'
+  singular: '{description} cannot be a collection.'
+  tooLong:
+    '{description} is too long (maximum is {max, plural, =1 {one character} other {{max} characters}}).'
+  tooShort:
+    '{description} is too short (minimum is {min, plural, =1 {one character} other {{min} characters}}).'
+  before: '{description} must be before {before}.'
+  after: '{description} must be after {after}.'
+  wrongDateFormat: '{description} must be in {format} format.'
+  wrongLength:
+    '{description} has incorrect length (has to be {is, plural, =1 {one character} other {{is} characters}}).'
+  notANumber: 'This is not a number.'
+  notAnInteger: 'This is not an integer.'
+  greaterThan: 'The number must be greater than {gt}.'
+  greaterThanOrEqualTo: 'The number must be greater than or eqaul to {gte, number}.'
+  equalTo: 'The number must equal {is}.'
+  lessThan: 'Th number must be less than {lt}.'
+  lessThanOrEqualTo: 'The number must be less than or equal to {lte}.'
+  otherThan: '{description} cannot be {value}.'
+  odd: 'This is not an odd number.'
+  even: 'This is not an even number.'
+  positive: 'This is not a positive number.'
+  date: 'This is not a valid date.'
+  email: 'E-mail format is incorrect.'
+  phone: 'This is not a valid phone.'
+  url: 'This is not a valid URL address.'
+  ajax: 'Something went wrong, please try again later.'
+  session:
+    'Signed out, <a href="{urlToLoginPage}">sing in again</a>, please.'
+  modulo: 'The number must be a multiple of {modulo}.'
+  nickname:
+    format: 'The nickname can contain only letters and numbers.'
+  password:
+    format:
+      'Password must have at least 8 characters and contain at least one capital letter and number.'
+    confirmation: 'Passwords differ.'
+    conflict: 'Original password differs. Please try again.'
+  address:
+    zipCode:
+      format: 'Fill in a valid ZIP code.'
+  bankAccount:
+    invalid: 'Account number invalid. Is it correct?'
+    noMatch: 'The filled in account number is not the same you have sent us statements for. Please call us at {phone}.'
+  account-blocking:
+    contactEmail: 'Failed to process contact e-mail address for confirmation receipt.'
+    contactPhone: 'Failed to process contact phone number.'
+    firstName: 'Failed to process given name.'
+    reason: 'Failed to process the reason for blocking.'
+    registeredEmail: 'Failed to process registered e-mail address.'
+    registeredPhone: 'Failed to process registered phone number.'
+    surname: 'Failed to process surname.'

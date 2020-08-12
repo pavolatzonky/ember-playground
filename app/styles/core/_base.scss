@@ -1,0 +1,37 @@
+@import './themes/z-plus';
+
+body {
+  overflow-x: hidden;
+
+  &.application-modal,
+  &.application-overlay {
+    overflow: hidden;
+  }
+
+  &.login-overlay {
+    position: fixed;
+    overflow: hidden;
+  }
+
+  &.bg-gray {
+    background: linear-gradient(
+      135deg,
+      rgba(38, 125, 226, 0.08),
+      rgba(208, 129, 136, 0.08) 100%
+    );
+  }
+
+  &.dark-background {
+    @include z-plus-page();
+  }
+
+  &:not(.focused-by-keyboard) * {
+    outline: none;
+  }
+}
+
+.application {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}

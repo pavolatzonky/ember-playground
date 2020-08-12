@@ -1,0 +1,132 @@
+@mixin investor-application-section() {
+  display: flex;
+  justify-content: center;
+  margin: 32px 0;
+  padding-bottom: 10rem;
+
+  @include media('screen', '>=medium') {
+    padding-bottom: 7rem;
+  }
+
+  &__container {
+    width: 100%;
+
+    &--center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @include media('screen', '>=small') {
+      width: 90%;
+    }
+
+    @include media('screen', '>=xmedium') {
+      width: 80%;
+    }
+
+    @include media('screen', '>=medium') {
+      width: 70%;
+    }
+  }
+
+  &__title {
+    width: 100%;
+    margin: 0;
+    padding-bottom: map-get($gaps, 'xmedium');
+    font-size: $fsz-heading;
+    line-height: map-get($font-sizes, 'largexx');
+    font-weight: 700;
+
+    &--small {
+      font-size: map-get($font-sizes, 'mediumxs');
+      line-height: map-get($font-sizes, 'large');
+    }
+  }
+
+  &__hint {
+    margin: 0;
+    padding: 0;
+    color: map-get($color-brand, 'gray-semi-dark');
+    font-size: map-get($font-sizes, 'medium');
+    line-height: map-get($font-sizes, 'large');
+    font-weight: 400;
+  }
+
+  &__btn-group {
+    padding-top: map-get($gaps, 'small');
+    text-align: center;
+
+    .btn {
+      width: 227px;
+      margin: 0 15px;
+    }
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .column-1,
+  .column-2 {
+    flex: 100%;
+    padding-bottom: map-get($gaps, 'large');
+  }
+
+  @include media('screen', '>=small') {
+    .row {
+      padding-bottom: map-get($gaps, 'large');
+    }
+
+    .column-1 {
+      flex: 1;
+    }
+
+    .column-2 {
+      flex: 2;
+    }
+
+    .column-1,
+    .column-2 {
+      padding-bottom: 0;
+    }
+
+    .gap-24 {
+      padding-right: 24px;
+    }
+  }
+
+  .label {
+    display: inline-block;
+    padding-bottom: map-get($gaps, 'xsmall');
+    font-size: map-get($font-sizes, 'default');
+    line-height: 21px;
+    cursor: pointer;
+  }
+
+  .description {
+    margin: 0;
+    padding-top: map-get($gaps, 'xmedium');
+    color: map-get($color-brand, 'gray-semi-dark');
+    font-size: map-get($font-sizes, 'default');
+    line-height: 21px;
+  }
+
+  .label,
+  .description {
+    a {
+      @include link-colors(map_get($color-brand, 'orange'));
+      font-size: inherit;
+      line-height: inherit;
+      white-space: nowrap;
+    }
+  }
+
+  &__error {
+    color: map_get($colors, 'error');
+    text-align: center;
+    margin: 24px 0;
+  }
+}

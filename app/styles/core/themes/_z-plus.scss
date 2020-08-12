@@ -1,0 +1,30 @@
+@mixin z-plus-page() {
+  & {
+    background-image: linear-gradient(to bottom right, #080808, #1b1b1b);
+  }
+}
+
+@mixin z-plus-page-content() {
+  margin: 0 auto;
+  padding: {
+    top: map_get($gaps, 'xxxlarge');
+    right: map_get($gaps, 'medium');
+    left: map_get($gaps, 'medium');
+    bottom: map_get($gaps, 'xxxlarge');
+  }
+  color: map_get($colors, 'plain-white');
+  font-family: map_get($font-families, 'sans-serif');
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin z-plus-box() {
+  width: 100%;
+  padding: 24px;
+  background-color: map_get($color-brand, 'rentier-box-background');
+  border-radius: 6px;
+}
+
+body.theme-rentier {
+  @include z-plus-page();
+}

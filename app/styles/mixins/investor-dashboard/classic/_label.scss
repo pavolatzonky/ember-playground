@@ -1,0 +1,18 @@
+@mixin superdashboard-label {
+  font-family: map_get($font-families, 'sans-serif');
+  font-size: map_get($font-sizes, 'default');
+  color: map_get($colors, 'gray-1');
+
+  &--underline {
+    text-decoration: underline;
+  }
+
+  &--bold {
+    font-weight: bold;
+  }
+
+  &--small {
+    font-size: map_get($font-sizes, 'small');
+    color: map_get($color-brand, 'gray-semi-dark');
+  }
+}

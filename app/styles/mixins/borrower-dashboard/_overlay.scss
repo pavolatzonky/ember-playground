@@ -1,0 +1,89 @@
+@mixin borrower-dashboard-overlay() {
+  @include overlay();
+
+  background-color: white;
+  font-family: map_get($font-families, roboto-slab-regular);
+  text-align: center;
+
+  &__title {
+    margin: 40px auto;
+    padding: 0 15px;
+    font-family: map_get($font-families, 'brand');
+    font-size: 64px;
+    font-weight: 400;
+    color: map_get($color-brand, 'teal');
+    max-width: 580px;
+
+    @include media('screen', '>=small') {
+      font-size: 64px;
+    }
+  }
+
+  &__contact-box {
+    margin: 5px auto;
+    color: map_get($color-brand, 'orange');
+    text-align: center;
+  }
+
+  &__contact-box:first-of-type {
+    margin-top: 35px;
+  }
+
+  &__contact-box:last-of-type {
+    margin-bottom: 35px;
+  }
+
+  &__phone,
+  &__email {
+    @include link-colors(map_get($color-brand, 'orange'));
+    @include link-no-decoration();
+
+    margin-left: 3px;
+    font-weight: bold;
+    line-height: 24px;
+  }
+
+  &__description {
+    margin: 10px auto;
+    padding: 0 15px;
+    max-width: 580px;
+    font-size: map_get($font-sizes, 'medium');
+    line-height: 24px;
+  }
+
+  &__bottom {
+    text-align: center;
+  }
+
+  &__dismiss {
+    margin: 10px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    width: 100%;
+    max-width: 250px;
+    font-family: map_get($font-families, 'brand');
+    font-size: 32px;
+  }
+
+  &__close {
+    @include link-colors(#000000);
+
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    svg {
+      font-size: map_get($font-sizes, 'mediumx');
+      vertical-align: sub;
+      color: map_get($color-brand, 'orange');
+    }
+  }
+}

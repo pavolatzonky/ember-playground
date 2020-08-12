@@ -1,0 +1,16 @@
+@mixin borrower-application-highlighted-value() {
+  font-weight: bold;
+  font-size: 18px;
+
+  @include media('screen', '>xsmall') {
+    font-size: 22px;
+  }
+}
+
+@mixin borrower-application-value() {
+  font-size: map_get($font-sizes, 'default');
+
+  @include media('screen', '>xsmall') {
+    font-size: 18px;
+  }
+}

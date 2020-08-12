@@ -1,0 +1,95 @@
+$color-plain-white: map-get($colors, 'plain-white');
+$color-teal: map-get($color-brand, 'teal');
+$color-blue-dark: map-get($color-brand, 'blue-dark');
+$color-yellow-aggressive: map-get($color-brand, 'yellow-aggressive');
+$color-bright-violet: map-get($color-brand, 'bright-violet');
+$padding-large: map-get($gaps, 'large');
+$padding-xxxlarge: map-get($gaps, 'xxxlarge');
+$font-size-mediumx: map-get($font-sizes, 'mediumx');
+$spacing-medium: map-get($gaps, 'medium');
+$spacing-xmedium: map-get($gaps, 'xmedium');
+
+@mixin color-swatch {
+  align-self: center;
+  width: $spacing-medium;
+  height: $spacing-medium;
+  margin-right: $spacing-xmedium;
+  border-radius: 3px;
+  border: solid 1px;
+
+  &--teal {
+    background-color: $color-teal;
+    border-color: $color-teal;
+  }
+
+  &--bright-violet {
+    background-color: $color-bright-violet;
+    border-color: $color-bright-violet;
+  }
+
+  &--yellow-aggressive {
+    background-color: $color-yellow-aggressive;
+    border-color: $color-yellow-aggressive;
+  }
+
+  &--yellow-aggressive-gradient {
+    background-image: linear-gradient(
+      to right bottom,
+      $color-yellow-aggressive 50%,
+      $color-plain-white 50%
+    );
+    border-color: $color-yellow-aggressive;
+  }
+
+  &--blue-dark {
+    background-color: $color-blue-dark;
+    border-color: $color-blue-dark;
+  }
+}
+
+@mixin superdashboard-chart-title() {
+  font-family: map-get($font-families, 'serif');
+  font-size: $font-size-mediumx;
+  font-weight: bold;
+  line-height: $font-size-mediumx * $line-height;
+
+  &--centered {
+    text-align: center;
+    padding: $padding-xxxlarge 0;
+  }
+}
+
+@mixin superdashoard-chart-ct-line($line-width: 2px) {
+  .ct-line {
+    stroke-width: $line-width;
+  }
+}
+
+@mixin superdashoard-chart-ct-point($point-width: 12px, $point-inner: 8px) {
+  .ct-point {
+    stroke-width: $point-width;
+  }
+
+  .ct-point-inner {
+    stroke: $white;
+    stroke-width: $point-inner;
+    stroke-linecap: round;
+    pointer-events: none;
+  }
+}
+
+@mixin superdashboard-chart-component {
+  & {
+    display: grid;
+    grid-row-gap: $padding-large;
+    grid-template-rows: repeat(1, 1fr);
+  }
+
+  &__chart-title {
+    @include superdashboard-chart-title();
+  }
+
+  &__chart-render {
+    width: 100%;
+  }
+}

@@ -1,0 +1,8 @@
+@mixin page-title($font-size: 64px) {
+  font-family: map_get($font-families, 'brand');
+  font-size: $font-size;
+  font-weight: 400;
+  text-align: center;
+  color: map_get($color-brand, 'teal');
+  margin: 0.67em 0;
+}

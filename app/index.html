@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {{content-for "head"}}
+
+    <link rel="manifest" href="{{rootURL}}manifest.webmanifest">
+    <meta name="msapplication-config" content="{{rootURL}}browserconfig.xml">
+
+    <link rel="preload" href="{{rootURL}}assets/styles/vendor.css" as="style">
+    <link rel="preload" href="{{rootURL}}assets/styles/ember-playground.css" as="style">
+    <link rel="stylesheet" href="{{rootURL}}assets/styles/vendor.css" integrity="">
+    <link rel="stylesheet" href="{{rootURL}}assets/styles/ember-playground.css" integrity="">
+
+    <link rel="preload" href="{{rootURL}}assets/polyfill-shared.js" as="script">
+    <link rel="preload" href="{{rootURL}}assets/polyfill-evergreen.js" as="script">
+    <link rel="preload" href="{{rootURL}}assets/vendor.js" as="script">
+    <link rel="preload" href="{{rootURL}}assets/ember-playground.js" as="script">
+    <link rel="preload" as="font" type="font/woff2" href="{{rootURL}}assets/fonts/roboto-slab-v6-latin-ext_latin-regular.woff2">
+    <link rel="preload" as="font" type="font/woff2" href="{{rootURL}}assets/fonts/roboto-slab-v6-latin-ext_latin-700.woff2">
+    <link rel="preload" as="font" type="font/woff2" href="{{rootURL}}assets/fonts/33A051_0_0.woff2">
+
+    {{content-for "head-footer"}}
+  </head>
+  <body>
+    {{content-for "body"}}
+
+    <script src="{{rootURL}}assets/polyfill-shared.js" defer></script>
+    <script src="{{rootURL}}assets/polyfill-legacy.js" defer nomodule></script>
+    <script src="{{rootURL}}assets/polyfill-evergreen.js" defer></script>
+
+    <script src="{{rootURL}}assets/vendor.js" defer></script>
+    <script src="{{rootURL}}assets/ember-playground.js" defer></script>
+
+    {{content-for "body-footer"}}
+  </body>
+</html>

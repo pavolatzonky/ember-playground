@@ -1,0 +1,141 @@
+/* roboto-300 - latin-ext_latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('/assets/fonts/roboto-v16-latin-ext_latin-300.eot'); /* IE9 Compat Modes */
+  src: local('Roboto Light'), local('Roboto-Light'),
+    url('/assets/fonts/roboto-v16-latin-ext_latin-300.eot?#iefix')
+      format('embedded-opentype'),
+    url('/assets/fonts/roboto-v16-latin-ext_latin-300.woff2') format('woff2'),
+    url('/assets/fonts/roboto-v16-latin-ext_latin-300.woff') format('woff'),
+    url('/assets/fonts/roboto-v16-latin-ext_latin-300.ttf') format('truetype'),
+    url('/assets/fonts/roboto-v16-latin-ext_latin-300.svg#Roboto') format('svg'); /* Legacy iOS */
+}
+
+/* roboto-regular - latin-ext_latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/assets/fonts/roboto-v16-latin-ext_latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Roboto'), local('Roboto-Regular'),
+    url('/assets/fonts/roboto-v16-latin-ext_latin-regular.eot?#iefix')
+      format('embedded-opentype'),
+    url('/assets/fonts/roboto-v16-latin-ext_latin-regular.woff2')
+      format('woff2'),
+    url('/assets/fonts/roboto-v16-latin-ext_latin-regular.woff') format('woff'),
+    url('/assets/fonts/roboto-v16-latin-ext_latin-regular.ttf')
+      format('truetype'),
+    url('/assets/fonts/roboto-v16-latin-ext_latin-regular.svg#Roboto')
+      format('svg'); /* Legacy iOS */
+}
+
+/* roboto-700 - latin-ext_latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/assets/fonts/roboto-v16-latin-ext_latin-700.eot'); /* IE9 Compat Modes */
+  src: local('Roboto Bold'), local('Roboto-Bold'),
+    url('/assets/fonts/roboto-v16-latin-ext_latin-700.eot?#iefix')
+      format('embedded-opentype'),
+    url('/assets/fonts/roboto-v16-latin-ext_latin-700.woff2') format('woff2'),
+    url('/assets/fonts/roboto-v16-latin-ext_latin-700.woff') format('woff'),
+    url('/assets/fonts/roboto-v16-latin-ext_latin-700.ttf') format('truetype'),
+    url('/assets/fonts/roboto-v16-latin-ext_latin-700.svg#Roboto') format('svg'); /* Legacy iOS */
+}
+
+/* roboto-slab-700 - latin-ext_latin */
+@font-face {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/assets/fonts/roboto-slab-v6-latin-ext_latin-700.eot'); /* IE9 Compat Modes */
+  src: local('Roboto Slab Bold'), local('RobotoSlab-Bold'),
+    url('/assets/fonts/roboto-slab-v6-latin-ext_latin-700.eot?#iefix')
+      format('embedded-opentype'),
+    url('/assets/fonts/roboto-slab-v6-latin-ext_latin-700.woff2')
+      format('woff2'),
+    url('/assets/fonts/roboto-slab-v6-latin-ext_latin-700.woff') format('woff'),
+    url('/assets/fonts/roboto-slab-v6-latin-ext_latin-700.ttf')
+      format('truetype'),
+    url('/assets/fonts/roboto-slab-v6-latin-ext_latin-700.svg#RobotoSlab')
+      format('svg'); /* Legacy iOS */
+}
+
+body {
+  @apply font-sans;
+
+  font-size: 16px;
+}
+
+body.theme-rentier {
+  @apply text-white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  @apply font-serif;
+}
+
+.theme-rentier h1,
+.theme-rentier h2,
+.theme-rentier h3,
+.theme-rentier h4,
+.theme-rentier h5 {
+  @apply font-sans;
+}
+
+.typography-h1,
+.typography-h2,
+.typography-h3,
+.typography-h4,
+.typography-h5 {
+  @apply leading-normal m-0;
+}
+
+.typography-h1 {
+  @apply text-3xl;
+}
+
+.typography-h2 {
+  @apply text-2xl;
+}
+
+.typography-h3 {
+  @apply text-xl;
+}
+
+.typography-h4 {
+  @apply text-lg;
+}
+
+.typography-h5 {
+  @apply text-base;
+}
+
+.theme-default .typography-h1,
+.theme-default .typography-h2,
+.theme-default .typography-h3,
+.theme-default .typography-h4,
+.theme-default .typography-h5 {
+  @apply font-serif font-bold text-black;
+}
+
+.theme-rentier .typography-h1,
+.theme-rentier .typography-h2,
+.theme-rentier .typography-h3,
+.theme-rentier .typography-h4,
+.theme-rentier .typography-h5 {
+  @apply font-sans font-light text-white uppercase text-center;
+
+  letter-spacing: 0.01875rem;
+}

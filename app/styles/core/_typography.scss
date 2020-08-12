@@ -1,0 +1,73 @@
+@import url('//hello.myfonts.net/count/33a051');
+
+body {
+  color: map_get($colors, 'text-default');
+}
+
+@font-face {
+  font-family: 'Borden';
+  font-display: swap;
+  src: url('/assets/fonts/33A051_0_0.eot');
+  src: url('/assets/fonts/33A051_0_0.eot?#iefix') format('embedded-opentype'),
+    url('/assets/fonts/33A051_0_0.woff2') format('woff2'),
+    url('/assets/fonts/33A051_0_0.woff') format('woff'),
+    url('/assets/fonts/33A051_0_0.ttf') format('truetype');
+}
+
+/* roboto-slab-100 - latin-ext_latin */
+@font-face {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url('/assets/fonts/roboto-slab-v6-latin-ext_latin-100.eot'); /* IE9 Compat Modes */
+  src: local('Roboto Slab Thin'), local('RobotoSlab-Thin'),
+    url('/assets/fonts/roboto-slab-v6-latin-ext_latin-100.eot?#iefix')
+      format('embedded-opentype'),
+    url('/assets/fonts/roboto-slab-v6-latin-ext_latin-100.woff2')
+      format('woff2'),
+    url('/assets/fonts/roboto-slab-v6-latin-ext_latin-100.woff') format('woff'),
+    url('/assets/fonts/roboto-slab-v6-latin-ext_latin-100.ttf')
+      format('truetype'),
+    url('/assets/fonts/roboto-slab-v6-latin-ext_latin-100.svg#RobotoSlab')
+      format('svg'); /* Legacy iOS */
+}
+
+/* roboto-slab-regular - latin-ext_latin */
+@font-face {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/assets/fonts/roboto-slab-v6-latin-ext_latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Roboto Slab Regular'), local('RobotoSlab-Regular'),
+    url('/assets/fonts/roboto-slab-v6-latin-ext_latin-regular.eot?#iefix')
+      format('embedded-opentype'),
+    url('/assets/fonts/roboto-slab-v6-latin-ext_latin-regular.woff2')
+      format('woff2'),
+    url('/assets/fonts/roboto-slab-v6-latin-ext_latin-regular.woff')
+      format('woff'),
+    url('/assets/fonts/roboto-slab-v6-latin-ext_latin-regular.ttf')
+      format('truetype'),
+    url('/assets/fonts/roboto-slab-v6-latin-ext_latin-regular.svg#RobotoSlab')
+      format('svg'); /* Legacy iOS */
+}
+
+/* roboto-slab-300 - latin-ext_latin */
+@font-face {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('/assets/fonts/roboto-slab-v6-latin-ext_latin-300.eot'); /* IE9 Compat Modes */
+  src: local('Roboto Slab Light'), local('RobotoSlab-Light'),
+    url('/assets/fonts/roboto-slab-v6-latin-ext_latin-300.eot?#iefix')
+      format('embedded-opentype'),
+    url('/assets/fonts/roboto-slab-v6-latin-ext_latin-300.woff2')
+      format('woff2'),
+    url('/assets/fonts/roboto-slab-v6-latin-ext_latin-300.woff') format('woff'),
+    url('/assets/fonts/roboto-slab-v6-latin-ext_latin-300.ttf')
+      format('truetype'),
+    url('/assets/fonts/roboto-slab-v6-latin-ext_latin-300.svg#RobotoSlab')
+      format('svg'); /* Legacy iOS */
+}

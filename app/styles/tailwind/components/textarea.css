@@ -1,0 +1,21 @@
+.textarea {
+  @apply max-w-full w-full min-h-full p-3 text-black border border-grey-2 rounded;
+
+  min-height: 150px;
+}
+
+.textarea::placeholder {
+  @apply text-grey-3 font-normal;
+}
+
+.textarea:focus {
+  @apply border-teal-base;
+}
+
+.textarea[disabled] {
+  @apply text-grey-3 font-normal bg-grey-1 border-grey-2;
+}
+
+.textarea.has-error {
+  @apply border-red;
+}

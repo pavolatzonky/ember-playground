@@ -1,0 +1,162 @@
+.embeddedServiceHelpButton .helpButton .uiButton,
+.sidebarHeader .shortHeader,
+.embeddedServiceLiveAgentStateChatItem.chasitor .chatContent,
+.embeddedServiceSidebarButton {
+  background-color: map_get($color-brand, 'teal') !important;
+
+  body.theme-dark & {
+    background-color: map_get($colors, 'gray-1') !important;
+  }
+
+  & .label {
+    color: white !important;
+  }
+}
+
+.embeddedServiceHelpButton .helpButton {
+  left: 8px !important;
+  right: initial !important;
+
+  @include media('screen', '>=small') {
+    right: 27px !important;
+    left: initial !important;
+  }
+}
+
+.embeddedServiceHelpButton .helpButton .uiButton:focus {
+  outline: 1px solid map_get($color-brand, 'teal') !important;
+
+  body.theme-dark & {
+    outline: 1px solid map_get($colors, 'gray-1') !important;
+  }
+}
+
+.embeddedServiceSidebarMinimizedDefaultUI {
+  background-color: map_get($color-brand, 'teal') !important;
+  border: none !important;
+  cursor: pointer !important;
+  font-family: inherit !important;
+
+  body.theme-dark & {
+    background-color: map_get($colors, 'gray-1') !important;
+  }
+}
+
+.prechatUI {
+  .fieldList li {
+    visibility: hidden;
+  }
+
+  .formContent.embeddedServiceSidebarForm {
+    background-position: center;
+  }
+}
+
+.offlineSupportUI .formContent.embeddedServiceSidebarForm {
+  background-position: bottom;
+  background-size: 60%;
+}
+
+.formContent.embeddedServiceSidebarForm {
+  background-image: url('/assets/images/zebras/zebra-with-notebook-phone.png');
+  background-repeat: no-repeat;
+}
+
+body.cookie-consent-shown {
+  $mobileOffset: 150px;
+
+  $sizing: (
+    320px: 130px,
+    420px: 120px,
+    480px: 100px,
+    560px: 90px,
+    700px: 70px,
+    1270px: 60px,
+  );
+
+  .embeddedServiceHelpButton .helpButton {
+    bottom: $mobileOffset;
+
+    @each $width, $offset in $sizing {
+      @include media('screen', '>=#{$width}') {
+        bottom: $offset;
+      }
+    }
+
+    .uiButton {
+      @include media('screen', '>=48em') {
+        border-radius: 23px;
+      }
+    }
+  }
+
+  .embeddedServiceSidebar.layout-docked {
+    .minimizedContainer {
+      bottom: $mobileOffset;
+      border-radius: 8px;
+
+      @each $width, $offset in $sizing {
+        @include media('screen', '>=#{$width}') {
+          bottom: $offset;
+        }
+      }
+    }
+
+    .dockableContainer {
+      bottom: $mobileOffset;
+      border-radius: 8px;
+      position: fixed;
+
+      @each $width, $offset in $sizing {
+        @include media('screen', '>=#{$width}') {
+          bottom: $offset;
+          height: calc(100% - #{$offset} - 24px);
+        }
+      }
+    }
+  }
+}
+
+.embeddedServiceSidebar.modalContainer {
+  z-index: 10000 !important;
+}
+
+.embeddedServiceSidebarHeader .headerItem:focus:after {
+  border: none !important;
+}
+
+.embeddedServiceSidebarFormField .slds-style-inputtext:focus,
+.embeddedServiceSidebarFormField .slds-style-select:focus {
+  body.theme-dark & {
+    border: 1px solid map_get($colors, 'gray-2');
+    box-shadow: 0 0 2px 0 map_get($colors, 'gray-2');
+  }
+}
+
+.helpButtonEnabled.uiButton {
+  min-width: auto !important;
+  width: auto !important;
+  height: auto !important;
+  padding: 12px !important;
+
+  @include media('screen', '>=small') {
+    min-width: 12em !important;
+    height: 46px !important;
+    padding: 0 12px !important;
+  }
+}
+
+.helpButtonLabel {
+  display: none !important;
+
+  @include media('screen', '>=small') {
+    display: flex !important;
+  }
+}
+
+.embeddedServiceIcon {
+  margin: 0 !important;
+  @include media('screen', '>=small') {
+    margin-right: 10px !important;
+  }
+}

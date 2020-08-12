@@ -1,0 +1,15 @@
+{
+  "name": "test-fastboot",
+  "keywords": [
+    "ember-addon"
+  ],
+  "dependencies": {
+    "ember-cli": "2.18.0",
+    "ember-cli-addon-tests": "0.11.0",
+    "glob": "7.1.2",
+    "js-reporters": "1.2.1",
+    "jsdom": "11.5.1",
+    "qunit": "2.4.1",
+    "request": "2.83.0"
+  }
+}

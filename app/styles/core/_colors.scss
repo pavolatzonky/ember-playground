@@ -1,0 +1,33 @@
+@each $name, $hex in $color-brand {
+  .color--#{$name} {
+    color: $hex;
+  }
+
+  .background-color--#{$name} {
+    color: $hex;
+  }
+
+  .border-color--#{$name} {
+    color: $hex;
+  }
+}
+
+@each $name, $hex in $color-rating {
+  .color-rating--#{$name} {
+    color: $hex;
+  }
+
+  .background-rating-color--#{$name} {
+    color: $hex;
+  }
+
+  .border-rating-color--#{$name} {
+    color: $hex;
+  }
+}
+
+@each $name, $hex in $color-progress-bar {
+  .background-progress-bar-color--#{$name} {
+    background-color: $hex;
+  }
+}

@@ -1,0 +1,25 @@
+@mixin break-to-row-at() {
+  flex-direction: column;
+
+  @each $name, $width in $breakpoints {
+    @include media('screen', '>=#{$width}') {
+      &--break-to-row-at-#{$name} {
+        flex-direction: row;
+        @content;
+      }
+    }
+  }
+}
+
+@mixin break-to-column-at() {
+  flex-direction: row;
+
+  @each $name, $width in $breakpoints {
+    @include media('screen', '>=#{$width}') {
+      &--break-to-column-at-#{$name} {
+        flex-direction: column;
+        @content;
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+@mixin marketplace-detail-bottom-bar() {
+  margin-top: -1px;
+  padding: 24px;
+  font-size: map_get($font-sizes, 'medium');
+  line-height: $line-height;
+  text-align: center;
+  color: #000000;
+  background-color: #ffffff;
+  border: solid 1px #dddddd;
+
+  &.fixed {
+    position: fixed;
+    bottom: 0;
+    z-index: 2;
+  }
+}

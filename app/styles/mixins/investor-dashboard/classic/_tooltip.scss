@@ -1,0 +1,79 @@
+$color-plain-white: map-get($colors, 'plain-white');
+$color-gray: map-get($colors, 'gray-5');
+$font-size-default: map-get($font-sizes, 'default');
+
+@mixin superdashboard-chartist-tooltip {
+  background-color: $color-plain-white;
+  border: 1px solid $color-gray;
+  border-radius: 6px;
+  color: map-get($colors, 'gray-1');
+  display: flex;
+  flex-direction: column;
+  font-family: map-get($font-families, 'sans-serif');
+  font-size: $font-size-default;
+  line-height: $font-size-default * $line-height;
+  padding: $padding-small $padding-xmedium;
+  white-space: nowrap;
+
+  &::before,
+  &::after {
+    border-color: transparent;
+    border-style: solid;
+    content: '';
+    height: 0;
+    left: 50%;
+    position: absolute;
+    top: 100%;
+    width: 0;
+  }
+
+  &::before {
+    border-top-color: $color-gray;
+    border-width: 10px;
+    bottom: 0;
+    margin-left: -10px;
+  }
+
+  &::after {
+    border-top-color: $color-plain-white;
+    border-width: 8px;
+    bottom: 1px;
+    margin-left: -8px;
+  }
+}
+
+@mixin superdashboard-chartist-tooltip-with-grid {
+  @include superdashboard-chartist-tooltip();
+
+  .title {
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .container {
+    font-weight: normal;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    column-gap: 36px;
+    text-align: left;
+
+    & span:nth-child(2n) {
+      text-align: right;
+    }
+  }
+}
+
+@mixin wallet-balance-history-chartist-tooltip {
+  @include superdashboard-chartist-tooltip();
+
+  .title {
+    font-weight: normal;
+    text-align: center;
+    color: map-get($colors, 'text-lighter');
+  }
+
+  .container {
+    font-weight: bold;
+    text-align: center;
+  }
+}

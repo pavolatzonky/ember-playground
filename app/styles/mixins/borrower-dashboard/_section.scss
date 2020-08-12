@@ -1,0 +1,109 @@
+@mixin borrower-dashboard-section() {
+  & {
+    position: relative;
+    margin-bottom: 40px;
+  }
+
+  &__title {
+    font-family: map_get($font-families, 'brand');
+    font-size: $fsz-title;
+    font-weight: 400;
+    text-align: center;
+    color: map_get($color-brand, 'teal');
+  }
+
+  &__item {
+    padding: 0 20px;
+
+    border-bottom: solid 1px #b1b1b1;
+    &:first-of-type {
+      border-top: solid 1px #b1b1b1;
+    }
+  }
+
+  &__item-title {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 32px;
+    color: #e75637;
+  }
+
+  &__info {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+
+    @include media('screen', '>=xmedium') {
+      flex-grow: 1;
+      width: 100%;
+      max-width: 100%;
+      flex-direction: row;
+    }
+
+    strong,
+    .format-number--highlight {
+      font-size: 18px;
+      font-weight: bold;
+    }
+  }
+
+  &__info-item {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    line-height: 1;
+    margin-top: 0px;
+    margin-bottom: 15px;
+    width: 100%;
+
+    &::before {
+      background-image: linear-gradient(
+        to right,
+        #d8d8d8 33%,
+        rgba(255, 255, 255, 0) 0%
+      );
+      background-position: bottom;
+      background-size: 4px 1px;
+      background-repeat: repeat-x;
+      height: 3px;
+      content: '';
+      flex-grow: 1;
+      order: 2;
+      margin: 0 5px;
+    }
+
+    @include media('screen', '>=xmedium') {
+      width: auto;
+
+      &::before {
+        content: none;
+      }
+    }
+  }
+
+  &__info-item-term {
+    order: 1;
+    color: map_get($colors, 'text-lighter');
+    font-size: map_get($font-sizes, 'default');
+    font-weight: 400;
+
+    @include media('screen', '>=xmedium') {
+      margin-top: 3px;
+      margin-bottom: 5px;
+      font-size: map_get($font-sizes, 'small');
+    }
+  }
+
+  &__info-item-definition {
+    order: 3;
+    text-align: left;
+    margin-left: 0;
+    color: #031025;
+    font-size: map_get($font-sizes, 'default');
+    font-weight: 400;
+  }
+}

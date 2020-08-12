@@ -1,0 +1,26 @@
+# unconventional js
+/blueprints/*/*files/
+/vendor/
+
+# dependencies
+node_modules/
+
+# compiled output
+/dist/
+/dist-aws/
+/dist-headers/
+/dist-sitemap/
+/tmp/
+
+# misc
+/coverage/
+/ssl/
+/translations/
+/test-reports/
+
+# ember-try
+/.node_modules.ember-try/
+/package.json.ember-try
+
+# re-enabled dot files
+!/.*.js

@@ -1,0 +1,49 @@
+$card-base-gap: 24px;
+
+.card {
+  padding: $card-base-gap;
+  border-radius: 6px;
+
+  &--theme-default {
+    background-color: map_get($colors, 'plain-white');
+    box-shadow: $shadow-regular;
+  }
+
+  &--theme-dark {
+    @include z-plus-box();
+  }
+
+  &--with-margin {
+    margin-top: $card-base-gap;
+  }
+
+  &--selected {
+    position: relative;
+    border: 2px solid map_get($color-brand, 'teal');
+
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 24px;
+      height: 24px;
+      z-index: 1;
+
+      background: url('/assets/images/icons/check.svg') no-repeat;
+      background-color: map_get($color-brand, 'teal');
+      background-position: 50% 50%;
+      background-size: 60%;
+      border-radius: 50%;
+    }
+  }
+
+  &--disabled {
+    opacity: 0.75;
+  }
+}
+
+.theme-rentier .card {
+  @include z-plus-box();
+}

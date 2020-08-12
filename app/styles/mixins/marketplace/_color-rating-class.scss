@@ -1,0 +1,9 @@
+@mixin color-rating-class() {
+  $selector: '.rating-';
+
+  @each $key, $value in $color-rating {
+    @at-root #{$selector}#{$key} {
+      color: $value;
+    }
+  }
+}

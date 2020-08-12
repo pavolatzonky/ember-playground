@@ -1,0 +1,28 @@
+@mixin profile-section() {
+  &__label {
+    margin: 20px 0 10px 0;
+    font-size: map_get($font-sizes, 'medium');
+    color: map_get($color-brand, 'teal');
+  }
+
+  &__field {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 400;
+
+    a {
+      @include link-colors(map_get($colors, 'text-default'));
+      @include link-no-decoration();
+    }
+  }
+
+  &__link {
+    @include link-colors(map_get($color-brand, 'orange'));
+    font-size: 15px;
+
+    display: inline-block;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

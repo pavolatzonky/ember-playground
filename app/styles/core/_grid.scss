@@ -1,0 +1,141 @@
+.row {
+  @include clearfix();
+
+  clear: both;
+  margin: 0 auto;
+  max-width: calc(100% - 30px);
+
+  @include media('screen', '>=medium') {
+    max-width: 960px;
+  }
+
+  @include media('screen', '>=large') {
+    max-width: 1180px;
+  }
+}
+
+.row-pull {
+  @include clearfix();
+
+  @include media('screen', '>=xsmall') {
+    margin-left: -(map_get($grid-config, 'gutter-width') / 2);
+    margin-right: -(map_get($grid-config, 'gutter-width') / 2);
+  }
+}
+
+.col {
+  &.split {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  &.right {
+    float: right;
+  }
+
+  &.center {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@include media('screen') {
+  @for $i from 1 through map_get($grid-config, 'columns') {
+    .col-#{$i} {
+      @include col-base();
+      width: (($i / map_get($grid-config, 'columns')) * 100%);
+    }
+  }
+}
+
+@include media('screen', '>=xsmall') {
+  @for $i from 1 through map_get($grid-config, 'columns') {
+    .col-xsmall-#{$i} {
+      @include col();
+      width: (($i / map_get($grid-config, 'columns')) * 100%);
+    }
+
+    .col-base-xsmall-#{$i} {
+      @include col-base();
+      width: (($i / map_get($grid-config, 'columns')) * 100%);
+    }
+
+    .col-offset-#{$i},
+    .col-xsmall-offset-#{$i} {
+      margin-left: (($i / map_get($grid-config, 'columns')) * 100%);
+    }
+  }
+}
+
+@include media('screen', '>=small') {
+  @for $i from 1 through map_get($grid-config, 'columns') {
+    .col-small-#{$i} {
+      @include col();
+      width: (($i / map_get($grid-config, 'columns')) * 100%);
+    }
+
+    .col-base-small-#{$i} {
+      @include col-base();
+      width: (($i / map_get($grid-config, 'columns')) * 100%);
+    }
+
+    .col-small-offset-#{$i} {
+      margin-left: (($i / map_get($grid-config, 'columns')) * 100%);
+    }
+  }
+}
+
+@include media('screen', '>=medium') {
+  @for $i from 1 through map_get($grid-config, 'columns') {
+    .col-medium-#{$i} {
+      @include col();
+      width: (($i / map_get($grid-config, 'columns')) * 100%);
+    }
+
+    .col-base-medium-#{$i} {
+      @include col-base();
+      width: (($i / map_get($grid-config, 'columns')) * 100%);
+    }
+
+    .col-medium-offset-#{$i} {
+      margin-left: (($i / map_get($grid-config, 'columns')) * 100%);
+    }
+  }
+}
+
+@include media('screen', '>=large') {
+  @for $i from 1 through map_get($grid-config, 'columns') {
+    .col-large-#{$i} {
+      @include col();
+      width: (($i / map_get($grid-config, 'columns')) * 100%);
+    }
+
+    .col-base-large-#{$i} {
+      @include col-base();
+      width: (($i / map_get($grid-config, 'columns')) * 100%);
+    }
+
+    .col-large-offset-#{$i} {
+      margin-left: (($i / map_get($grid-config, 'columns')) * 100%);
+    }
+  }
+}
+
+@include media('screen', '>=xlarge') {
+  @for $i from 1 through map_get($grid-config, 'columns') {
+    .col-xlarge-#{$i} {
+      @include col();
+      width: (($i / map_get($grid-config, 'columns')) * 100%);
+    }
+
+    .col-base-xlarge-#{$i} {
+      @include col-base();
+      width: (($i / map_get($grid-config, 'columns')) * 100%);
+    }
+
+    .col-xlarge-offset-#{$i} {
+      margin-left: (($i / map_get($grid-config, 'columns')) * 100%);
+    }
+  }
+}

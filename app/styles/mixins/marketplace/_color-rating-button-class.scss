@@ -1,0 +1,16 @@
+@mixin color-rating-button-class() {
+  $selector: '.rating-button-';
+
+  @each $key, $value in $color-rating {
+    @at-root #{$selector}#{$key} {
+      color: $value;
+
+      &:hover,
+      &.active {
+        color: map_get($colors, 'plain-white');
+        background-color: $value;
+        border-color: darken($value, 10%);
+      }
+    }
+  }
+}

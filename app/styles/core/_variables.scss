@@ -1,0 +1,301 @@
+$line-height: 1.428571429;
+
+$grid-config: (
+  'columns': 12,
+  'gutter-width': 24px,
+  'max-width': 1200px,
+);
+
+/* prettier-ignore */
+$font-families: (
+  'brand': #{'Borden', 'Roboto', sans-serif},
+  'serif': #{'Roboto Slab', serif},
+  'sans-serif': #{'Roboto', sans-serif},
+);
+
+$font-sizes: (
+  xsmall: 10px,
+  small: 12px,
+  default: 14px,
+  medium: 16px,
+  mediumxs: 18px,
+  mediumx: 20px,
+  large: 24px,
+  largex: 28px,
+  largexx: 32px,
+  xlarge: 36px,
+  xxlarge: 48px,
+  xxxlarge: 72px,
+  // obsolete
+    icon: 20px,
+  default-heading: 24px,
+  title: 48px,
+);
+
+$gaps: (
+  'xxsmall': 2px,
+  'xsmall': 4px,
+  'small': 8px,
+  'xmedium': 12px,
+  'medium': 16px,
+  'large': 24px,
+  'xlarge': 36px,
+  'xxlarge': 48px,
+  'xxxlarge': 64px,
+);
+
+$breakpoints: (
+  'xxsmall': 360px,
+  'xsmall': 480px,
+  'small': 768px,
+  'xmedium': 868px,
+  'medium': 992px,
+  'large': 1200px,
+  'xlarge': 1400px,
+  'xxlarge': 1920px,
+);
+
+$im-no-media-breakpoint: 'large';
+
+$animation-time: (
+  'short': 0.2s,
+  'medium': 0.45s,
+  'long': 0.85s,
+);
+
+$z-index: (
+  header: 980,
+  modal: 1050,
+  tooltip: 1051,
+  session: 2000,
+  cookie: 9001,
+  error: 9999,
+  chart-legend: 10,
+  header-connector: 1,
+);
+
+/**
+ * text-default           rgb(68, 68, 68)
+ * text-darker            rgb(40, 40, 40)
+ * text-lighter           rgb(155, 155, 155)
+ * text-cookie-consent    rgb(51, 51, 51)
+ * text-gray              rgb(93, 93, 93)
+ * text-fail              rgb(218, 20, 0)
+ * body-gray              rgb(246, 246, 246)
+ * error                  rgb(237, 28, 36)
+ * bg-error               rgb(250, 221, 215)
+ * bg-whitegray           rgb(231, 231, 231)
+ * plain-white            rgb(255, 255, 255)
+ * gray-1                 rgb(0, 0, 0)
+ * gray-2                 rgb(36, 36, 36)
+ * gray-3                 rgb(72, 72, 72)
+ * gray-4                 rgb(156, 156, 156)
+ * gray-5                 rgb(214, 214, 214)
+ * gray-6                 rgb(241, 241, 241)
+ */
+$colors: (
+  'text-default': #444444,
+  'text-darker': #282828,
+  'text-lighter': #9b9b9b,
+  'text-cookie-consent': #333333,
+  'text-gray': #5d5d5d,
+  'text-fail': #da1400,
+  'body-gray': #f6f6f6,
+  'error': #ed1c24,
+  'bg-error': #faddd7,
+  'bg-whitegray': #e7e7e7,
+  'plain-white': #ffffff,
+  'gray-1': #000000,
+  'gray-2': #242424,
+  'gray-3': #484848,
+  'gray-4': #9c9c9c,
+  'gray-5': #d6d6d6,
+  'gray-6': #f1f1f1,
+);
+
+/**
+ * gray                   rgb(231, 231, 231)
+ * gray-outline           rgb(156, 156, 156)
+ * gray-medium            rgb(135, 135, 135)
+ * gray-semi-dark         rgb(102, 102, 102)
+ * gray-dark              rgb(78, 78, 78)
+ * green                  rgb(92, 189, 98)
+ * green-blue-dark        rgb(57, 145, 156)
+ * green-dark             rgb(42, 165, 141)
+ * orange                 rgb(231, 86, 55)
+ * orange-light           rgb(239, 84, 0)
+ * teal                   rgb(55, 177, 191)
+ * teal-dark              rgb(0, 116, 131)
+ * yellow                 rgb(196, 196, 44)
+ * yellow-dark            rgb(124, 124, 23)
+ * red                    rgb(237, 28, 36)
+ * luxury-brown:          rgb(125, 97, 61)
+ * luxury-brown-light:    rgb(183, 151, 92)
+ * luxury-gray-1          rgb(211, 211, 211)
+ * luxury-gray-2          rgb(151, 151, 151)
+ * luxury-gray-3          rgb(76, 76, 76)
+ * luxury-gray-4          rgb(72, 72, 72)
+ * luxury-gray-5          rgb(36, 36, 36)
+ * bright-violet          rgb(145,41,218)
+ */
+$color-brand: (
+  'blue-dark': #277e85,
+  'gray': #e7e7e7,
+  'gray-outline': #9c9c9c,
+  'gray-medium': #878787,
+  'gray-semi-dark': #666666,
+  'gray-dark': #4e4e4e,
+  'green': #5cbd62,
+  'green-blue-dark': #39919c,
+  'green-dark': #2aa58d,
+  'orange': #e75637,
+  'orange-light': #ef5400,
+  'teal': #37b4be,
+  'teal-dark': #007483,
+  'yellow-aggressive': #faa61a,
+  'yellow-aggressive-dark': #dc9013,
+  'yellow': #c4c42c,
+  'yellow-dark': #7c7c17,
+  'red': #ed1c24,
+  'luxury-brown': #7d613d,
+  'luxury-brown-light': #b7975c,
+  'luxury-gray-1': #d3d3d3,
+  'luxury-gray-2': #979797,
+  'luxury-gray-3': #4c4c4c,
+  'luxury-gray-4': #484848,
+  'luxury-gray-5': #242424,
+  'bright-violet': #9129da,
+  'rentier-box-background': #303030,
+);
+
+/**
+ * aaaaa  rgb(89, 106, 190)
+ * aaaa   rgb(89, 158, 190)
+ * aaa    rgb(89, 190, 168)
+ * aa     rgb(103, 205, 117)
+ * a      rgb(154, 205, 103)
+ * b      rgb(206, 190, 90)
+ * c      rgb(215, 149, 75)
+ * d      rgb(231, 86, 55)
+ * f      rgb(199, 0, 31)
+ */
+$color-rating: (
+  'aaaaaa': #c0498b,
+  'aaaaa': #8b59be,
+  'aaaa': #596abe,
+  'aaa': #599ebe,
+  'aae': #59bea8,
+  'aa': #67cd75,
+  'ae': #9acd67,
+  'a': #cebe5a,
+  'b': #d7954b,
+  'c': #e75637,
+  'd': #d12f2f,
+  'f': #c7001f,
+);
+
+/**
+ * 1  rgb(21, 72, 85)
+ * 2  rgb(45, 145, 156)
+ * 3  rgb(55, 180, 190)
+ * 4  rgb(213, 233, 235)
+ */
+$color-progress-bar: (
+  '1': #154855,
+  '2': #2d919c,
+  '3': #37b4be,
+  '4': #d5e9eb,
+);
+
+$shadows: (
+  box-default: 0 0 5px 0 rgba(0, 0, 0, 0.3),
+  box-default-bottom: 0 3px 5px -3px rgba(0, 0, 0, 0.3),
+  box-button-default: 0 2px 2px rgba(0, 0, 0, 0.15),
+  box-button-square: 2px 2px 0 0 rgba(0, 0, 0, 0.15),
+  box-button--default: 3px 3px 0 0 rgba(0, 0, 0, 0.1),
+  box-button--default-active: inset 0 0 8px 4px rgba(0, 0, 0, 0.5),
+  box-input-default: inset 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+  box-input-light: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+  box-input-switch: 0 2px 4px 0 rgba(0, 0, 0, 0.05),
+  box-card-default: 0 2px 24px 0 rgba(0, 0, 0, 0.1),
+  box-modal: 0 5px 15px rgba(0, 0, 0, 0.5),
+  box-component: 1px 3px 2px rgba(0, 0, 0, 0.075),
+  box-button-expander: 0 0 20px rgba(0, 0, 0, 0.25),
+  box-menu-dropdown-light: 0 6px 12px 0 rgba(0, 0, 0, 0.2),
+  box-menu-dropdown-dark: 0px 0px 0px 1px
+    map-get(
+      $map: $color-brand,
+      $key: 'gray-semi-dark',
+    ),
+  box-menu-dropdown-connector-dark: -1px 0px 0px 0px map-get(
+      $map: $color-brand,
+      $key: 'gray-semi-dark',
+    ),
+  regular: 0 2px 24px 0 rgba(0, 0, 0, 0.1),
+  dropdown: 0 6px 24px 0 rgba(0, 0, 0, 0.2),
+);
+
+$svg-arrow: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='#{encode-color(map-get($map: $color-brand, $key: 'orange'))}'%3E%3Cpolygon points='0,0 100,0 50,50'/%3E%3C/svg%3E";
+
+$zonky-plus-app-header-height: 50px;
+$application-menu-height: 50px;
+
+/**
+ * DESIGN SYSTEM ALIASES
+ *
+ * Used to create a layer of abstraction to allow the usage of tokens in css
+ * instead of directly referencing lists
+ */
+$minimum-horizontal-window-margin: map-get(
+  $map: $gaps,
+  $key: 'medium',
+) !default;
+
+$fsz-icon: map-get(
+  $map: $font-sizes,
+  $key: 'mediumx',
+) !default;
+$fsz-heading: map-get(
+  $map: $font-sizes,
+  $key: 'large',
+) !default;
+$fsz-title: map-get(
+  $map: $font-sizes,
+  $key: 'xxlarge',
+) !default;
+
+$fsz-small: 12px !default;
+$fsz-medium: 14px !default;
+$fsz-large: 16px !default;
+
+$lh-small: 4/3 !default;
+$lh-medium: normal !default;
+$lh-large: 3/2 !default;
+
+.typography-small {
+  font-family: map-get($map: $font-families, $key: 'sans-serif');
+  font-size: $fsz-small;
+  line-height: $lh-small;
+}
+
+.typography-medium {
+  font-family: map-get($map: $font-families, $key: 'sans-serif');
+  font-size: $fsz-medium;
+  line-height: $lh-large;
+}
+
+.typography-large {
+  font-family: map-get($map: $font-families, $key: 'sans-serif');
+  font-size: $fsz-large;
+  line-height: $lh-large;
+}
+
+$shadow-regular: map-get(
+  $map: $shadows,
+  $key: 'regular',
+) !default;
+
+$shadow-dropdown: map-get(
+  $map: $shadows,
+  $key: 'dropdown',
+) !default;

@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+body {
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  list-style-position: inside;
+}
+
+a,
+button,
+input,
+div {
+  &[data-ember-action]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+hr,
+img {
+  border: none;
+}
+
+img {
+  vertical-align: middle;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+}

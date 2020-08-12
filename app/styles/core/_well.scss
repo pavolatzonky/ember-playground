@@ -1,0 +1,47 @@
+.well {
+  @include clearfix();
+
+  &--default {
+    margin: 10px 15px;
+    padding: 10px;
+    max-width: 1170px;
+
+    @include media('screen', '>=xsmall') {
+      padding: 30px;
+    }
+
+    @include media('screen', '>=large') {
+      margin: 30px auto;
+    }
+
+    h1 {
+      margin: 20px 0 10px 0;
+      padding-bottom: 8px;
+      font-family: map_get($font-families, 'brand');
+      font-size: 64px;
+      font-weight: 400;
+      color: map_get($color-brand, 'teal');
+    }
+
+    hr {
+      margin: 20px 0;
+    }
+  }
+
+  &--yellow {
+    color: #ffffff;
+    background-color: map_get($color-brand, 'yellow');
+
+    h1,
+    h2,
+    h3 {
+      color: map_get($color-brand, 'yellow-dark');
+      border-bottom-color: darken(map_get($color-brand, 'yellow'), 5%);
+    }
+
+    hr {
+      margin: 20px 0;
+      border-top: 1px solid darken(map_get($color-brand, 'yellow'), 5%);
+    }
+  }
+}

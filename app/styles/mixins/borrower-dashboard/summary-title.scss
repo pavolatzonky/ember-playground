@@ -1,0 +1,6 @@
+@mixin borrower-dashboard-summary-title() {
+  margin: 0 auto 25px auto;
+  max-width: 525px;
+  font-size: map_get($font-sizes, 'medium');
+  line-height: 24px;
+}

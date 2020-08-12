@@ -1,0 +1,40 @@
+.clearfix {
+  @include clearfix();
+}
+
+.text {
+  &--left {
+    text-align: left;
+  }
+
+  &--center {
+    text-align: center;
+  }
+
+  &--right {
+    text-align: right;
+  }
+
+  &--no-select {
+    user-select: none;
+  }
+
+  &--space-destroy {
+    &,
+    & * {
+      font-size: 0;
+      line-height: 1;
+    }
+  }
+}
+
+.helpful-zebra {
+  display: none;
+
+  @include media('screen', '>=large') {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 230px;
+  }
+}

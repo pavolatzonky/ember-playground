@@ -1,0 +1,78 @@
+@mixin borrower-offer-section($alignItems: flex-start, $marginTop: 5rem) {
+  & {
+    @include borrower-offer-section-main($alignItems, $marginTop);
+  }
+
+  &__title {
+    @include borrower-offer-section-title();
+  }
+
+  &__description {
+    @include borrower-offer-section-description();
+  }
+  &__list {
+    @include borrower-offer-section-list();
+  }
+
+  &__link {
+    @include borrower-offer-section-link();
+  }
+
+  &__form {
+    @include borrower-offer-section-form();
+  }
+
+  &__controls {
+    @include borrower-offer-section-controls();
+  }
+}
+
+@mixin borrower-offer-section-main($alignItems, $marginTop) {
+  display: flex;
+  flex-direction: column;
+  align-items: $alignItems;
+  margin-top: $marginTop;
+  padding: 2rem 2rem 0;
+}
+@mixin borrower-offer-section-title() {
+  font-size: map_get($font-sizes, 'xlarge');
+  font-weight: normal;
+  margin: 0.67em 0;
+}
+@mixin borrower-offer-section-description() {
+  line-height: 1.4;
+  margin-bottom: 40px;
+  align-self: stretch;
+}
+@mixin borrower-offer-section-list() {
+  @include dotted-list();
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+@mixin borrower-offer-section-link() {
+  text-decoration: none;
+  @include button-as-link(
+    map_get($color-brand, 'orange'),
+    null,
+    null,
+    null,
+    null,
+    'none'
+  );
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@mixin borrower-offer-section-form() {
+  width: 100%;
+}
+
+@mixin borrower-offer-section-controls() {
+  align-self: center;
+  text-align: center;
+
+  button {
+    margin: 20px;
+  }
+}

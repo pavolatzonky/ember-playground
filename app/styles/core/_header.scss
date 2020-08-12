@@ -1,0 +1,21 @@
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: map_get($z-index, 'header');
+
+  &--static {
+    position: static;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    z-index: initial;
+  }
+
+  &--error,
+  &--critical {
+    background-color: inherit;
+  }
+}

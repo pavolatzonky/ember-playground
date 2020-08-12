@@ -1,0 +1,78 @@
+.range-slider.noUi-target {
+  @apply border-none shadow-none bg-transparent;
+}
+
+.range-slider .noUi-connect {
+  @apply border-none h-1 bg-grey-5;
+}
+
+.range-slider-theme-dark .noUi-connect {
+  @apply border-none bg-rentier-light-highlight;
+
+  height: 2px;
+}
+
+.range-slider .noUi-connects {
+  @apply rounded-none bg-grey-3;
+}
+
+.range-slider-theme-dark .noUi-connects {
+  @apply bg-white;
+
+  height: 2px;
+  border-radius: 2px;
+}
+
+.range-slider-theme-dark.noUi-horizontal {
+  @apply h-4;
+}
+
+.range-slider .noUi-base {
+  @apply relative h-1 bg-grey-3;
+}
+
+.range-slider .noUi-base::before {
+  @apply w-full absolute h-1 rounded-sm;
+
+  content: '';
+}
+
+.range-slider-theme-dark .noUi-base {
+  @apply w-full absolute bg-white h-0;
+
+  content: '';
+}
+
+.range-slider .noUi-handle {
+  @apply bg-white bg-center bg-no-repeat cursor-pointer w-10 h-10 border-2 border-black rounded-full;
+
+  background-image: url('/assets/images/icons/slider-chevrons.svg');
+  transform: translateY(-30%);
+}
+
+.range-slider-theme-dark .noUi-handle {
+  @apply border-solid border-2 border-rentier-light-highlight bg-rentier-light-highlight mt-0 w-4 h-4 border-none shadow-none;
+
+  background-image: none;
+  transform: translateX(-50%);
+}
+
+.range-slider .noUi-handle:active :not(.range-slider-theme-dark) {
+  background-image: url('/assets/images/icons/slider-chevrons.svg');
+}
+
+.range-slider .noUi-handle::before {
+  @apply hidden;
+}
+
+.range-slider .noUi-handle::after {
+  @apply hidden;
+}
+
+.range-slider-theme-dark.range-slider-hints-item {
+  @apply text-sm text-grey-2;
+}
+
+.range-slider-container.range-slider-theme-dark {
+  @apply pt-4;
+}

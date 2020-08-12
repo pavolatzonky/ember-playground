@@ -1,0 +1,44 @@
+@mixin investor-application-form() {
+  input,
+  select,
+  .ember-basic-dropdown-trigger {
+    width: 100%;
+    padding: 11px;
+    background-color: #f7f7f7;
+    color: map_get($colors, 'gray-1');
+    line-height: map_get($font-sizes, 'large');
+    border: 1px solid map_get($colors, 'gray-5');
+    border-radius: 3px;
+    transition: border-color 0.2s;
+    overflow: hidden;
+  }
+
+  .row p.error,
+  .row p.error a {
+    color: map_get($colors, 'error');
+    font-weight: 500;
+    line-height: 24px;
+    font-size: map_get($font-sizes, 'medium');
+  }
+
+  .input__error {
+    background-color: transparent;
+    padding: 6px 0;
+  }
+
+  &__checkbox {
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    font-size: map-get($font-sizes, 'default');
+
+    &--centered {
+      text-align: center;
+    }
+
+    &--shifted {
+      text-align: left;
+      margin-left: 24px;
+    }
+  }
+}

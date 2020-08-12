@@ -1,0 +1,80 @@
+inflections:
+  minutes:
+    '{count, plural, =1 {minuta} =2 {minuty} =3 {minuty} =4 {minuty} other {minut}}'
+  minutes-till: '{count, plural, =1 {minuty} other {minut}}'
+  hours:
+    '{count, plural, =1 {hodina} =2 {hodiny} =3 {hodiny} =4 {hodiny} other {hodin}}'
+  days: '{count, plural, =1 {den} =2 {dny} =3 {dny} =4 {dny} other {dní}}'
+  days-in: 'za {count} {count, plural, =1 {den} =2 {dny} =3 {dny} =4 {dny} other {dní}}'
+  months:
+    '{count, plural, =1 {měsíc} =2 {měsíce} =3 {měsíce} =4 {měsíce} other {měsíců}}'
+  years:
+    '{count, plural, =1 {rok} =2 {roky} =3 {roky} =4 {roky} other {let}}'
+  people:
+    '{count, plural, =1 {člověk} =2 {lidé} =3 {lidé} =4 {lidé} other {lidí}}'
+  investors:
+    '{count, plural, =1 {investor} =2 {investoři} =3 {investoři} =4 {investoři} other {investorů}}'
+  phrases:
+    invested-people:
+      '{count, plural, =1 {zainvestoval 1 člověk} =2 {zainvestovali 2 lidé} =3 {zainvestovali 3 lidé} =4 {zainvestovali 4 lidé} other {zainvestovalo {count} lidí}}'
+errors:
+  description: 'Tato hodnota'
+  inclusion: '{description} není na seznamu.'
+  exclusion: '{description} je rezervovaná.'
+  invalid: '{description} není platná.'
+  confirmation: '{description} neodpovídá {on}.'
+  accepted: '{description} musí být odsouhlasena.'
+  empty: '{description} musí být vyplněna.'
+  blank: 'Toto pole je povinné.'
+  present: '{description} musí být prázdná.'
+  collection: '{description} musí být sada.'
+  singular: '{description} nemůže být sada.'
+  tooLong:
+    '{description} je příliš dlouhá (maximum {max, plural, =1 {je jeden znak} =2 {jsou dva znaky} =3 {jsou tři znaky} =4 {jsou čtyři znaky} other {je {max} znaků}}).'
+  tooShort:
+    '{description} je příliš krátká (minimum {min, plural, =1 {je jeden znak} =2 {jsou dva znaky} =3 {jsou tři znaky} =4 {jsou čtyři znaky} other {je {min} znaků}}).'
+  before: '{description} musí být před {before}.'
+  after: '{description} musí být po {after}.'
+  wrongDateFormat: '{description} musí být ve formátu {format}.'
+  wrongLength:
+    '{description} má nesprávnou délku (má mít {is, plural, =1 {jeden znak} =2 {dva znaky} =3 {tři znaky} =4 {čtyři znaky} other {{is} znaků}}).'
+  notANumber: 'Toto není číslo.'
+  notAnInteger: 'Toto není celé číslo.'
+  greaterThan: 'Číslo musí být větší než {gt, number}.'
+  greaterThanOrEqualTo: 'Číslo musí být větší nebo rovno {gte, number}.'
+  equalTo: 'Číslo se musí rovnat {is, number}.'
+  lessThan: 'Číslo musí být menší než {lt, number}.'
+  lessThanOrEqualTo: 'Číslo musí být menší nebo rovno {lte, number}.'
+  otherThan: '{description} nesmí být {value}.'
+  odd: 'Toto není liché číslo.'
+  even: 'Toto není sudé číslo.'
+  positive: 'Toto není kladné číslo.'
+  date: 'Toto není platné datum.'
+  email: 'E-mail je v nesprávném formátu.'
+  phone: 'Toto není platný telefon.'
+  url: 'Toto není platná adresa URL.'
+  ajax: 'Něco se nepovedlo, opakujte prosím akci později.'
+  session:
+    'Proběhlo odhlášení, <a href="{urlToLoginPage}">přihlaste se znovu</a>, prosím.'
+  modulo: 'Číslo musí být násobkem {modulo}.'
+  nickname:
+    format: 'Přezdívka smí obsahovat pouze písmena a číslice.'
+  password:
+    format:
+      'Heslo musí mít alespoň 8 znaků a musí obsahovat nejméně jedno velké písmeno a jednu číslici.'
+    confirmation: 'Hesla se neshodují.'
+    conflict: 'Původní heslo se neshoduje. Zkuste to znovu.'
+  address:
+    zipCode:
+      format: 'Zadejte platné PSČ.'
+  bankAccount:
+    invalid: 'Číslo účtu nesedí. Je opravdu správně?'
+    noMatch: 'Zadané číslo účtu nesouhlasí s tím, ze kterého jste nám posílali výpisy. Zavolejte nám prosím na {phone}.'
+  account-blocking:
+    contactEmail: 'Nepodařilo se zpracovat e-mailovou adresu pro zaslání potvrzení.'
+    contactPhone: 'Nepodařilo se zpracovat nové telefonní číslo.'
+    firstName: 'Nepodařilo se zpracovat jméno.'
+    reason: 'Nepodařilo se zpracovat důvod blokace.'
+    registeredEmail: 'Nepodařilo se zpracovat registrovanou e-mailovou adresu.'
+    registeredPhone: 'Nepodařilo se zpracovat registrované telefonní číslo.'
+    surname: 'Nepodařilo se zpracovat příjmení.'

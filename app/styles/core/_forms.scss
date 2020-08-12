@@ -1,0 +1,531 @@
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: map_get($font-families, 'sans-serif');
+  line-height: normal;
+}
+
+.form-control {
+  color: #000000;
+  background-color: #f7f7f7;
+  border: #49ab45;
+}
+
+@mixin input-element() {
+  $this: &;
+
+  display: block;
+  width: 100%;
+  padding: map_get($gaps, 'small') map_get($gaps, 'xmedium');
+  font-size: map_get($font-sizes, 'medium');
+  font-weight: 400;
+  background-color: inherit;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0;
+
+  .has-error & {
+    border-color: map_get($colors, 'text-fail');
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  &[disabled],
+  &:hover[disabled] {
+    cursor: not-allowed;
+  }
+
+  &[type='search'] {
+    -webkit-appearance: none;
+  }
+
+  input.has-success & {
+    padding-right: map_get($gaps, 'xxlarge');
+  }
+
+  outline: none;
+  &:focus {
+    outline: none;
+  }
+
+  &::placeholder {
+    font-weight: 400;
+  }
+
+  &--light {
+    color: #000000;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    border: 1px solid #b4b4b4;
+    border-radius: 1px;
+    &.input__element.ember-power-select-trigger {
+      height: 56px;
+      display: flex;
+      align-items: center;
+    }
+
+    &[disabled] {
+      background-color: map-get($map: $colors, $key: 'gray-6');
+    }
+  }
+
+  &--yellow-dark {
+    @include box-shadow(input-light);
+
+    color: #ffffff;
+    background-color: darken(map_get($color-brand, 'yellow'), 5%);
+    border-color: transparent;
+
+    &::placeholder {
+      color: map_get($color-brand, 'yellow-dark');
+    }
+  }
+
+  &--theme-default {
+    padding-top: map_get($gaps, 'xmedium');
+    padding-bottom: map_get($gaps, 'xmedium');
+    height: 48px;
+    font-size: map_get($font-sizes, 'medium');
+    font-weight: bold;
+    line-height: (24/16);
+    color: map_get($colors, 'gray-2');
+    background-color: inherit;
+    border: 1px solid map_get($colors, 'gray-5');
+    border-radius: 3px;
+
+    &::placeholder {
+      font-weight: normal;
+      text-transform: lowercase;
+      color: map_get($colors, 'gray-5');
+    }
+
+    .has-error & {
+      border-bottom-left-radius: 3px;
+      border-bottom-right-radius: 3px;
+    }
+
+    &.ember-power-select-trigger {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    &:focus {
+      border-color: map_get($color-brand, 'teal');
+      outline: solid 1px map_get($color-brand, 'teal');
+    }
+  }
+
+  &--right-join {
+    border-right: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  &--theme-default#{&}--right-join {
+    &:focus {
+      border-right: solid 1px map_get($color-brand, 'teal');
+    }
+  }
+
+  &--theme-dark {
+    padding-top: map_get($gaps, 'xmedium');
+    padding-bottom: map_get($gaps, 'xmedium');
+    height: 48px;
+    font-size: map_get($font-sizes, 'medium');
+    font-weight: normal;
+    line-height: (24/16);
+    color: map_get($colors, 'plain-white');
+    background-color: transparent;
+    border: 1px solid map_get($colors, 'gray-5');
+    border-radius: 3px;
+
+    &:focus {
+      border-color: map_get($color-brand, 'luxury-brown-light');
+      outline: solid 1px map_get($color-brand, 'luxury-brown-light');
+    }
+
+    &::placeholder {
+      font-weight: normal;
+      text-transform: lowercase;
+      color: map_get($colors, 'gray-4');
+    }
+
+    .has-error & {
+      border-bottom-left-radius: 3px;
+      border-bottom-right-radius: 3px;
+      color: map_get($colors, 'error');
+    }
+
+    &.ember-power-select-trigger {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    &#{$this}--off {
+      background-color: map-get($map: $color-brand, $key: 'luxury-gray-2');
+      color: map-get($map: $color-brand, $key: 'luxury-gray-2');
+
+      svg {
+        color: map-get($map: $colors, $key: 'plain-white');
+      }
+    }
+  }
+
+  &--white {
+    color: #000000;
+    border: 1px solid #b4b4b4;
+    background-color: #ffffff;
+    border-radius: 0;
+    padding: 1rem 1rem;
+  }
+}
+
+input::-ms-reveal {
+  display: none;
+}
+
+.input {
+  &__group {
+    position: relative;
+  }
+
+  &__element {
+    @include input-element();
+
+    &--no-ms-clear {
+      &::-ms-clear {
+        display: none;
+      }
+    }
+
+    &--no-spin-button {
+      -moz-appearance: textfield;
+
+      &::-webkit-inner-spin-button,
+      &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    }
+
+    &--disabled#{&}--theme-default {
+      color: map_get($colors, 'gray-5');
+    }
+    &--disabled#{&}--theme-dark {
+      color: map_get($colors, 'gray-5');
+      background-color: map_get($color-brand, 'gray-semi-dark');
+    }
+  }
+
+  &__range-input-container {
+    display: flex;
+    border: 1px solid map-get($map: $colors, $key: 'gray-5');
+  }
+
+  &__range-element {
+    @include input-element();
+    text-align: center;
+    border: none;
+
+    &--light {
+      border: none;
+      font-size: map_get($font-sizes, 'mediumxs');
+      padding: map_get($gaps, 'xmedium') map_get($gaps, 'xmedium');
+    }
+
+    &--no-ms-clear {
+      &::-ms-clear {
+        display: none;
+      }
+    }
+
+    &--no-spin-button {
+      -moz-appearance: textfield;
+
+      &::-webkit-inner-spin-button,
+      &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    }
+  }
+
+  &__phone-code {
+    .ember-power-select-trigger {
+      @include input-element();
+    }
+  }
+
+  &__valid {
+    position: absolute;
+    top: 50%;
+    right: map_get($gaps, 'xmedium');
+    font-size: map_get($font-sizes, 'large');
+    color: map_get($color-brand, 'green');
+    transform: translateY(-50%);
+
+    .input--textarea & {
+      top: 20px;
+    }
+
+    &--number {
+      right: 25px;
+    }
+
+    &--range {
+      display: none;
+    }
+
+    &--disabled {
+      display: none;
+    }
+  }
+
+  &__element--no-spin-button ~ &__valid {
+    &--number {
+      right: map_get($gaps, 'xmedium');
+    }
+  }
+
+  &__error {
+    padding: 6px map_get($gaps, 'xmedium');
+    color: map_get($colors, 'text-fail');
+    font-size: map_get($font-sizes, 'small');
+
+    &--overlay {
+      color: #ffffff;
+      position: absolute;
+      width: 100%;
+      z-index: 1;
+    }
+
+    &--has-error {
+      color: map_get($colors, 'error');
+      background-color: map_get($colors, 'bg-error');
+      border-bottom-left-radius: 2px;
+      border-bottom-right-radius: 2px;
+    }
+
+    &--theme-default {
+      padding: map_get($gaps, 'xsmall') 0;
+      font-size: map_get($font-sizes, 'small');
+      line-height: (16/12);
+      color: map_get($color-brand, 'red');
+      background-color: inherit;
+    }
+
+    &--theme-dark {
+      padding: map_get($gaps, 'xsmall') 0;
+    }
+
+    &--has-error#{&}--theme-dark {
+      color: map_get($colors, 'error');
+      background-color: transparent;
+    }
+  }
+}
+
+.select {
+  $this: &;
+
+  &--decorated {
+    position: relative;
+
+    select {
+      width: 100%;
+      padding: map_get($gaps, 'small') map_get($gaps, 'xmedium');
+      background-color: #ffffff;
+      border: solid 1px map_get($color-brand, 'gray');
+      appearance: none;
+      font-size: map_get($font-sizes, 'medium');
+
+      &::-ms-expand {
+        display: none;
+      }
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: map_get($gaps, 'xmedium');
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 6px 4.5px 0 4.5px;
+      border-color: map_get($color-brand, 'orange') transparent transparent
+        transparent;
+      pointer-events: none;
+    }
+  }
+
+  &--theme-default {
+    position: relative;
+
+    select {
+      padding: map_get($gaps, 'xmedium');
+      padding-right: 28px;
+      width: 100%;
+      height: 48px;
+      font-size: map_get($font-sizes, 'medium');
+      font-weight: bold;
+      line-height: (24/16);
+      color: map_get($colors, 'gray-2');
+      background-color: inherit;
+      border: 1px solid map_get($colors, 'gray-5');
+      border-radius: 3px;
+      appearance: none;
+
+      &::-ms-expand {
+        display: none;
+      }
+
+      .has-error & {
+        border-color: map_get($color-brand, 'red');
+      }
+
+      &:focus {
+        border-color: map_get($color-brand, 'teal');
+        outline: solid 1px map_get($color-brand, 'teal');
+      }
+    }
+
+    select.left-joint {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    svg {
+      position: absolute;
+      top: 50%;
+      right: map_get($gaps, 'xmedium');
+      transform: translateY(-50%);
+      color: map_get($color-brand, 'teal');
+      pointer-events: none;
+    }
+  }
+
+  &--theme-dark {
+    position: relative;
+
+    select {
+      padding: map_get($gaps, 'xmedium');
+      padding-right: 28px;
+      width: 100%;
+      height: 48px;
+      font-size: map_get($font-sizes, 'medium');
+      font-weight: normal;
+      line-height: (24/16);
+      color: map_get($colors, 'plain-white');
+      background-color: transparent;
+      border: 1px solid map_get($colors, 'gray-5');
+      border-radius: 3px;
+      appearance: none;
+
+      &:focus {
+        border-color: map_get($color-brand, 'luxury-brown-light');
+        outline: solid 1px map_get($color-brand, 'luxury-brown-light');
+      }
+
+      &::-ms-expand {
+        display: none;
+      }
+
+      .has-error & {
+        border-color: map_get($color-brand, 'red');
+      }
+
+      option {
+        background-color: map_get($color-brand, 'luxury-gray-4');
+        color: map_get($colors, 'plain-white');
+      }
+    }
+
+    svg {
+      position: absolute;
+      top: 50%;
+      right: map_get($gaps, 'xmedium');
+      transform: translateY(-50%);
+      color: map_get($color-brand, 'luxury-brown-light');
+      pointer-events: none;
+    }
+
+    &#{$this}--off {
+      select {
+        background-color: map-get($map: $color-brand, $key: 'luxury-gray-2');
+        color: map-get($map: $color-brand, $key: 'luxury-gray-2');
+      }
+
+      svg {
+        color: map-get($map: $colors, $key: 'plain-white');
+      }
+    }
+  }
+
+  &--yellow-dark select {
+    @include box-shadow(input-light);
+
+    color: #ffffff;
+    background-color: darken(map_get($color-brand, 'yellow'), 5%);
+    border-color: transparent;
+
+    &::placeholder {
+      color: map_get($color-brand, 'yellow-dark');
+    }
+  }
+}
+
+.ember-power-select-dropdown {
+  border-radius: 0;
+
+  .ember-power-select-option {
+    padding: 8px;
+  }
+}
+
+.toggle-button {
+  margin-bottom: map_get($gaps, 'medium');
+  padding: 0;
+  font-size: map_get($font-sizes, 'medium');
+  font-weight: bold;
+  line-height: (20/14);
+  background: none;
+  border: none;
+  color: map_get($colors, 'gray-2');
+  outline: none;
+  cursor: pointer;
+
+  svg {
+    transition-property: transform;
+    transition-duration: 1s;
+    color: map_get($color-brand, 'teal');
+
+    .toggle-wrapper.expanded & {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.toggle-button--theme-default {
+  font-weight: normal;
+}
+
+.toggle-button--theme-dark {
+  margin-bottom: map_get($gaps, 'xsmall');
+  font-size: map_get($font-sizes, 'default');
+  font-weight: normal;
+  color: map_get($colors, 'plain-white');
+
+  svg {
+    color: map_get($color-brand, 'luxury-brown-light');
+  }
+}
+
+.validated-input.has-success {
+  .input__element {
+    padding-right: map_get($gaps, 'xlarge');
+  }
+}

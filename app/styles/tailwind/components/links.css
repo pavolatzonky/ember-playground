@@ -1,0 +1,26 @@
+.link {
+  @apply text-black text-base leading-normal font-sans underline cursor-pointer;
+}
+
+/* change after UX deliver hover state */
+.link:hover {
+  @apply no-underline;
+}
+
+/* change after UX deliver disable state */
+.link:disabled {
+  @apply opacity-50 no-underline cursor-not-allowed;
+}
+
+.link-negative,
+button.link-negative {
+  @apply text-white bg-grey-3;
+}
+
+.link-inherit {
+  @apply text-inherit;
+}
+
+.link-small {
+  @apply text-sm;
+}

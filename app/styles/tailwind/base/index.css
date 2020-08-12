@@ -1,0 +1,9 @@
+@import './typography.css';
+
+a {
+  text-decoration: underline;
+}
+
+img {
+  border-width: 0;
+}

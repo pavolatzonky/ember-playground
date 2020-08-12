@@ -1,0 +1,32 @@
+@mixin borrower-dashboard-summary-table() {
+  margin: 0 auto 30px auto;
+  max-width: 525px;
+  font-size: map_get($font-sizes, 'default');
+  text-align: center;
+
+  dl {
+    padding: 0 10px;
+    text-align: left;
+    display: inline-block;
+  }
+
+  dt,
+  dd {
+    display: block;
+    text-align: center;
+
+    @include media('screen', '>=xsmall') {
+      text-align: left;
+    }
+  }
+
+  dd {
+    font-size: map_get($font-sizes, 'medium');
+    margin-left: 0;
+  }
+
+  .format-number--highlight {
+    font-size: map_get($font-sizes, title);
+    font-weight: 700;
+  }
+}

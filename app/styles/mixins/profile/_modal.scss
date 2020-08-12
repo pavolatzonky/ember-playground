@@ -1,0 +1,27 @@
+@mixin profile-modal() {
+  text-align: center;
+
+  &__finish {
+    p {
+      margin-bottom: 40px;
+      font-size: map_get($font-sizes, 'medium');
+      font-weight: 300;
+      line-height: 1.5;
+      text-align: left;
+    }
+  }
+
+  &__description {
+    text-align: left;
+  }
+
+  &__phone {
+    font-size: map_get($font-sizes, 'mediumx');
+    font-weight: 700;
+
+    a {
+      @include link-colors(map_get($colors, 'text-default'));
+      @include link-no-decoration();
+    }
+  }
+}

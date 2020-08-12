@@ -1,0 +1,26 @@
+@mixin error-page($critical: true) {
+  $color: map_get($colors, 'gray-1');
+  $bg-color: map_get($colors, 'bg-whitegray');
+
+  @if $critical == true {
+    $color: map_get($colors, 'plain-white');
+    $bg-color: map_get($color-brand, 'orange');
+  }
+
+  text-align: center;
+  color: $color;
+  background-color: $bg-color !important;
+  height: 100vh;
+}
+
+.error-401,
+.error-403,
+.error-404,
+.error-429,
+.error-503 {
+  @include error-page(false);
+}
+
+.error-500 {
+  @include error-page(true);
+}

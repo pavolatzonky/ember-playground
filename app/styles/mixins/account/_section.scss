@@ -1,0 +1,62 @@
+@mixin account-section() {
+  & {
+    padding: 4rem 1rem 0;
+    text-align: center;
+  }
+
+  &__form {
+    max-width: 570px;
+    margin: 0 auto;
+  }
+
+  button[type='submit'],
+  .btn {
+    width: 200px;
+    font-size: 32px;
+    font-family: map_get($font-families, 'brand');
+    margin-top: 50px;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    font-family: map_get($font-families, 'brand');
+    font-size: 40px;
+    font-weight: 400;
+    color: map_get($color-brand, 'teal');
+    @include media('screen', '>=xsmall') {
+      font-size: 64px;
+    }
+  }
+
+  &__input-labels {
+    display: block;
+    font-size: map_get($font-sizes, 'medium');
+    font-family: map_get($font-families, 'serif');
+    text-align: left;
+    padding: 12px 0 7px 0;
+  }
+
+  .input__group {
+    margin-bottom: 15px;
+  }
+
+  .has-error .input__element,
+  .has-error .ember-power-select-trigger {
+    border-color: #b4b4b4;
+  }
+
+  .input__feedback {
+    text-align: left;
+  }
+
+  &__description {
+    max-width: 570px;
+    margin: 0 auto 25px auto;
+    line-height: 21px;
+  }
+
+  &__error {
+    padding: 6px map_get($gaps, 'xmedium');
+    color: map_get($colors, 'text-fail');
+  }
+}

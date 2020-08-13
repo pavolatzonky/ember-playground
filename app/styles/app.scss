@@ -7,3 +7,45 @@
 @import 'pod-styles';
 @import 'liveagent/index';
 /* purgecss end ignore */
+
+
+.hover-target .show-on-hover {
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.hover-target:hover .show-on-hover,
+.hover-target .show-on-hover:focus,
+.hover-target .show-on-hover:active {
+  opacity: 1;
+  filter: alpha(opacity=1);
+}
+
+.sr-only {
+  clip-path: inset(50%);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.notification {
+  position: relative;
+  top: -40px;
+  left: 0;
+  margin-bottom: -40px;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.3s;
+  transition-property: top, left, margin-bottom;
+}
+
+.notification.entering {
+  top: 0;
+  margin-bottom: 0;
+}
+
+.notification.leaving {
+  left: 100vw;
+}

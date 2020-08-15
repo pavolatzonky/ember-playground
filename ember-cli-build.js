@@ -38,6 +38,12 @@ module.exports = function(defaults) {
       includeScriptTags: false,
     },
 
+    autoImport: {
+      publicAssetURL: '/assets',
+      // avoids multiple import
+      exclude: ['qunit'],
+    },
+
     hinting: false,
     tests: process.env.EMBER_ENV === 'test',
 

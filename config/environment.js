@@ -134,7 +134,7 @@ module.exports = function(environment) {
     ENV.APP.rootElement = '#ember-testing';
     ENV.APP.autoboot = false;
 
-    ENV.contact.email = 'info@zonkej.cz';
+    // ENV.contact.email = 'info@zonkej.cz';
 
     if (process.env.EMBER_TEST_FASTBOOT) {
       ENV.appURL = APP_URL;

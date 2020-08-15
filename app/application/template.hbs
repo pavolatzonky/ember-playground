@@ -18,7 +18,7 @@
 
       <input placeholder="Search" class="appearance-none search-form__field" id="search" type="search">
 
-      <button aria-label="Submit search" class="search-form__button">
+      <button type="button" aria-label="Submit search" class="search-form__button">
         <svg class="fill-current text-grey h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
           <path d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z">
           </path>
@@ -35,7 +35,7 @@
     <div class="flex items-start px-6 py-2 text-sm hover-target hover:bg-grey-lightest message" role="listitem">
       <figure class="w-10 h-10 rounded overflow-hidden mr-3">
         <img class="message__user-avatar"
-          src="https://en.gravatar.com/userimage/4584631/86f74019598950f6efd7b1b8e493259a.jpeg" alt="">
+          src="https://en.gravatar.com/userimage/4584631/86f74019598950f6efd7b1b8e493259a.jpeg" alt="Avatar">
       </figure>
 
       <div class="flex-1">
@@ -56,6 +56,7 @@
       </div>
 
       <button
+        type="button"
         class="message__delete-button border-transparent hover:border-red-light show-on-hover hover:bg-red-lightest border-1 rounded mb-1 pl-3 pr-2 py-1"
         aria-label="delete message">
         🗑
@@ -83,7 +84,9 @@
       <input id="message-input" class="channel-footer__message-input w-full px-4"
         placeholder="Message #general" type="text">
 
-      <button disabled
+      <button
+        type="button"
+        disabled
         class="channel-footer__message-send-button font-bold uppercase opacity-50 bg-grey-dark text-white border-teal-dark p-2">
         SEND
       </button>

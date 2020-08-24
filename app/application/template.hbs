@@ -1,12 +1,9 @@
 <main class="flex-1 flex flex-col bg-white overflow-hidden channel">
 
-  <header class="border-b flex px-6 py-2 items-center flex-none channel-header">
-    <ChannelHeader
-      @name="general"
-      @description="Just some general people generally chatting about general things"
-    />
-    <SearchForm />
-  </header>
+  <ChannelHeader
+    @name="general"
+    @description="Just some general people generally chatting about general things"
+  />
 
   <div class="py-4 flex-1 overflow-y-scroll channel-messages-list" role="list">
     <Message

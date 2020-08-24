@@ -1,41 +1,25 @@
 <main class="flex-1 flex flex-col bg-white overflow-hidden channel">
 
-  <header class="border-b flex px-6 py-2 items-center flex-none channel-header">
-    <div>
-      <h3 class="text-grey-darkest mb-1 font-extrabold channel-header__title">
-        <span aria-hidden="true">#</span>
-        general
-      </h3>
-
-      <h4 class="text-grey-dark text-sm truncate channel-header__description">
-        Just some general people generally chatting about general things
-      </h4>
-    </div>
-
-    <form
-      class="ml-auto md:block border border-grey rounded-lg pl-3 pr-2 py-1 flex flex-row-reverse items-center search-form">
-      <label for="search" class="sr-only">Search messages</label>
-
-      <input placeholder="Search" class="appearance-none search-form__field" id="search" type="search">
-
-      <button type="button" aria-label="Submit search" class="search-form__button">
-        <svg class="fill-current text-grey h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-          <path d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z">
-          </path>
-        </svg>
-      </button>
-    </form>
-  </header>
+  <ChannelHeader
+    @channelName="general"
+    @channelDescription="Just some general people generally chatting about general things"
+  />
 
   <div class="py-4 flex-1 overflow-y-scroll channel-messages-list" role="list">
 
-    <Message @sender="Lisa Huang-North" @timestamp="Apr 21, 2019 12:21.38 PM"
+    <Message
+      @sender="Lisa Huang-North"
+      @timestamp="Apr 21, 2019 12:21.38 PM"
       @message="Would you like to join my professional network?"
-      @avatar="https://gravatar.com/avatar/96c332a96737c6668906232e39cb16ef?s=200" />
+      @avatar="https://gravatar.com/avatar/96c332a96737c6668906232e39cb16ef?s=200"
+    />
 
-    <Message @sender="Mike North" @timestamp="Apr 21, 2019 12:23.4 PM"
+    <Message
+      @sender="Mike North"
+      @timestamp="Apr 21, 2019 12:23.4 PM"
       @message="Hello developer, I looked at your profile and am impressed by your 14 years of COBOL experience. Are you happy in your current role?"
-      @avatar="https://en.gravatar.com/userimage/4584631/86f74019598950f6efd7b1b8e493259a.jpeg" />
+      @avatar="https://en.gravatar.com/userimage/4584631/86f74019598950f6efd7b1b8e493259a.jpeg"
+    />
 
     <button type="button"
       class="message__delete-button border-transparent hover:border-red-light show-on-hover hover:bg-red-lightest border-1 rounded mb-1 pl-3 pr-2 py-1"

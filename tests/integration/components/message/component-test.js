@@ -1,6 +1,6 @@
-import { module, test } from 'qunit';
-import setupRenderingTest from 'ember-playground/tests/helpers/setup-rendering-test';
 import { hbs } from 'ember-cli-htmlbars';
+import { module, test } from 'qunit';
+import setupRenderingTest from '../../../helpers/setup-rendering-test';
 
 module('Integration | Component | message', function(hooks) {
   setupRenderingTest(hooks);

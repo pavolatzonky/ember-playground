@@ -11,7 +11,11 @@ module('Integration | Component | message', function(hooks) {
     this.set('messageText', 'Would you like to join my professional network?');
 
     await this.render(
-      hbs`<Message @sender={{this.senderName}} @time={{this.timeStamp}} @message={{this.messageText}} />`
+      hbs`<Message
+        @sender={{this.senderName}}
+        @time={{this.timeStamp}}
+        @message={{this.messageText}}
+      />`
     );
 
     assert.equal(
@@ -20,12 +24,12 @@ module('Integration | Component | message', function(hooks) {
       'Author name is ok'
     );
     assert.equal(
-      document.querySelector('.message__timestamp').text.trim(),
+      document.querySelector('.message__timestamp').textContent.trim(),
       'Apr 21, 2019 12:21.38 PM',
       'Time is ok'
     );
     assert.equal(
-      document.querySelector('.message__body').text.trim(),
+      document.querySelector('.message__body').textContent.trim(),
       'Would you like to join my professional network?',
       'Text is ok'
     );

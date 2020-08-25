@@ -63,7 +63,7 @@ module.exports = function(environment) {
 
     locale: 'cs-cz',
 
-    internationalFallbackLocale: 'en-gb',
+    internationalFallbackLocale: 'en-us',
 
     /**
      * List of locales that are up for use in the GUI and by the users
@@ -73,7 +73,7 @@ module.exports = function(environment) {
      * @see /app/config/constants/asset-translations-file-map.js
      * @see /blueprints/component-translation/index.js
      */
-    activeLocales: ['cs-cz', 'en-gb', 'es-es'],
+    activeLocales: ['cs-cz', 'en-us', 'es-es'],
 
     consent: {
       cookie: {

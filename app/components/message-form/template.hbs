@@ -16,14 +16,15 @@
   <input
     id="message-input"
     class="channel-footer__message-input w-full px-4"
-    placeholder="Message #general"
+    placeholder={{t "MessageForm.message" channelName="general"}}
     type="text"
   >
 
   <button
     type="button"
     disabled
-    class="channel-footer__message-send-button font-bold uppercase opacity-50 bg-grey-dark border-teal-dark p-2">
-    SEND
+    class="channel-footer__message-send-button font-bold uppercase opacity-50 bg-grey-dark border-teal-dark p-2"
+  >
+    {{t "MessageForm.send"}}
   </button>
 </form>

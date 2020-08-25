@@ -13,11 +13,9 @@ module('Integration | Helper | format-date', function(hooks) {
     this.set('outputFormat', 'dd.MM.yyyy'); // named argument
 
     await render(hbs`
-    {{format-date this.date outputFormat=this.outputFormat}}`);
+      {{format-date this.date outputFormat=this.outputFormat}}
+    `);
 
-    assert.equal(
-      this.element.textContent.trim(),
-      '30.11.2000'
-    );
+    assert.equal(this.element.textContent.trim(), '30.11.2000');
   });
 });

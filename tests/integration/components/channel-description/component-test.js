@@ -16,7 +16,15 @@ module('Integration | Component | channel-header', function(hooks) {
       />
     `);
 
-    assert.equal(document.querySelector('.channel-header__title').innerText.trim(), '# channel name', 'Title is present');
-    assert.equal(document.querySelector('.channel-header__description').innerText.trim(), 'channel description', 'Description is present');
+    assert.equal(
+      document.querySelector('.channel-header__title').innerText.trim(),
+      '#channel name',
+      'Title is present'
+    );
+    assert.equal(
+      document.querySelector('.channel-header__description').innerText.trim(),
+      'channel description',
+      'Description is present'
+    );
   });
 });

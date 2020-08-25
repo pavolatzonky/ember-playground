@@ -6,12 +6,19 @@ module('Integration | Component | search-form', function(hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function(assert) {
-
     await this.render(hbs`
       <SearchForm/>
     `);
 
     assert.ok(document.querySelector('form'), 'Form is present');
-    assert.ok(document.querySelector('.search-form__button'), 'Input is present');
+    assert.ok(
+      document.querySelector('.search-form__button'),
+      'Input is present'
+    );
+    assert.equal(
+      document.querySelector('.search-form__field').placeholder,
+      'Search',
+      'Search field placeholder is ok'
+    );
   });
 });

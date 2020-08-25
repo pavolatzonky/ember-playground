@@ -1,4 +1,5 @@
 /* eslint complexity: "off" */
+/* eslint-disable no-unused-vars */
 'use strict';
 
 module.exports = function(environment) {
@@ -6,16 +7,9 @@ module.exports = function(environment) {
   const APP_NAME = process.env.APP_NAME || 'Zonkej';
   const API_URL = process.env.API_URL || '';
   const REDIRECT_URL = process.env.REDIRECT_URL || 'http://localhost:9000';
-  const FASTBOOT_HOST = process.env.FASTBOOT_HOST || 'http://localhost:4200';
-  const RECAPTCHA_SITE_KEY =
-    process.env.RECAPTCHA_SITE_KEY ||
-    '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI';
+
   const GCM_SENDER_ID = process.env.GCM_SENDER_ID || '997571095814';
-  const ONE_SIGNAL_APP_ID =
-    process.env.ONE_SIGNAL_APP_ID || 'e39727c2-22fb-4789-98e1-804f0ec7aa7b';
-  const ONE_SIGNAL_SAFARI_WEB_ID =
-    process.env.ONE_SIGNAL_SAFARI_WEB_ID ||
-    'web.onesignal.auto.2900aeea-27da-4bc5-9f95-2e3d9a76781c';
+
   const HOMEPAGE_URL =
     process.env.HOMEPAGE_URL || 'https://homepage-preprod.zonkej.cz';
   const STATUS_PAGE_URL =
@@ -25,9 +19,6 @@ module.exports = function(environment) {
     'https://homepage-preprod.zonkej.cz/zonkytimes';
   const COOKIE_DOMAIN_NAKED = process.env.COOKIE_DOMAIN_NAKED || 'localhost';
   const COOKIE_PATH = '/';
-  const LIVEAGENT_DOMAIN = COOKIE_DOMAIN_NAKED.replace(/^\./, '');
-  const LIVEAGENT_EMAIL_DOMAIN =
-    LIVEAGENT_DOMAIN === 'localhost' ? 'zonkej.cz' : LIVEAGENT_DOMAIN;
 
   const ENV = {
     modulePrefix: 'ember-playground',
@@ -63,7 +54,7 @@ module.exports = function(environment) {
 
     locale: 'cs-cz',
 
-    internationalFallbackLocale: 'en-gb',
+    internationalFallbackLocale: 'en-us',
 
     /**
      * List of locales that are up for use in the GUI and by the users
@@ -73,7 +64,7 @@ module.exports = function(environment) {
      * @see /app/config/constants/asset-translations-file-map.js
      * @see /blueprints/component-translation/index.js
      */
-    activeLocales: ['cs-cz', 'en-gb', 'es-es'],
+    activeLocales: ['cs-cz', 'en-us', 'es-es'],
 
     consent: {
       cookie: {
@@ -141,9 +132,6 @@ module.exports = function(environment) {
       ENV.APP.rootElement = 'body';
       ENV['ember-cli-mirage'].enabled = false;
     }
-  }
-
-  if (environment === 'production') {
   }
 
   return ENV;

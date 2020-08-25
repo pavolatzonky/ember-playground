@@ -1,0 +1,4 @@
+MessageForm:
+  message: 'Message #{channelName}'
+  send: Send
+  

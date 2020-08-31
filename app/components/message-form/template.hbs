@@ -16,7 +16,7 @@
   <input
     id="message-input"
     class="channel-footer__message-input w-full px-4"
-    placeholder={{t "MessageForm.message" channelName="general"}}
+    placeholder={{t "MessageForm.message" channelName=(channel-name @name)}}
     type="text"
   >
 

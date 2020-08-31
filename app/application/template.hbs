@@ -6,18 +6,14 @@
   />
 
   <div class="py-4 flex-1 overflow-y-scroll channel-messages-list" role="list">
-    <Message
-      @avatarSrc="https://gravatar.com/avatar/96c332a96737c6668906232e39cb16ef?s=200"
-      @sender="Lisa Huang-North"
-      @timestamp={{this.firstMessageSentOn}}
-      @messageBody="Would you like to join my professional network?"
-    />
-    <Message
-      @avatarSrc="https://en.gravatar.com/userimage/4584631/86f74019598950f6efd7b1b8e493259a.jpeg"
-      @sender="Mike North"
-      @timestamp={{this.secondMessageSentOn}}
-      @messageBody="Hello developer, I looked at your profile and am impressed by your 14 years of COBOL experience. Are you happy in your current role?"
-    />
+    {{#each this.messages as |message|}}
+      <Message
+        @avatarSrc={{message.avatarSrc}}
+        @sender={{message.sender}}
+        @timestamp={{message.timestamp}}
+        @messageBody={{message.messageBody}}
+      />
+    {{/each}}
   </div>
 
   <footer class="pb-6 px-4 flex-none channel-footer">

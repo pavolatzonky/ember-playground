@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { hbs } from 'ember-cli-htmlbars';
-import setupRenderingTest from '../../../helpers/setup-rendering-test';
-import page from '../../../pages/components/message';
+import setupRenderingTest from '../../../../helpers/setup-rendering-test';
+import page from '../../../../pages/components/message';
 
 module('Integration | Component | message', function(hooks) {
   setupRenderingTest(hooks, page);
@@ -15,7 +15,7 @@ module('Integration | Component | message', function(hooks) {
     this.set('timestamp', new Date(2019, 1, 12, 7, 31, 14));
     this.set('messageBody', 'A dummy message text');
 
-    await this.render(hbs`<Message
+    await this.render(hbs`<Messages::Message
       @avatarSrc={{this.avatarSrc}}
       @sender={{this.senderName}}
       @timestamp={{this.timestamp}}

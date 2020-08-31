@@ -7,6 +7,7 @@ module('Integration | Component | info-panel', function(hooks) {
   setupRenderingTest(hooks, page);
 
   test('it renders', async function(assert) {
+    this.set('user', { nickname: 'Magda' }); //this je kontext testu, potřebuju v tom kontextu propertu user, která je objekt s propertou nickname
     const time = new Date();
     let hours = time.getHours();
     let minutes = time.getMinutes();
@@ -16,7 +17,7 @@ module('Integration | Component | info-panel', function(hooks) {
 
     await this.render(hbs`
       <InfoPanel
-        @nickname="Magda"
+        @user={{this.user}}
       />
     `);
 

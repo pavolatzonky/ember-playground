@@ -1,6 +1,6 @@
 <section class="flex pt-1 justify-between w-full text-xs info-panel">
   <span class="info-panel__logged-as-section">
-    {{t "InfoPanel.login-account"}} <span class="underline info-panel__nickname">{{@nickname}}</span>
+    {{t "InfoPanel.login-account"}} <span class="underline info-panel__nickname">{{@user.nickname}}</span>
   </span>
   <span class="info-panel__logged-at-section">
     {{t "InfoPanel.last-login"}} <span class="underline info-panel__logged-at">{{format-date this.lastLoginAt outputFormat="HH:mm"}}</span>

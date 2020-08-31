@@ -1,1 +1,3 @@
 InfoPanel:
+  login-account: 'Přihlášen jako'
+  last-login: 'Poslední přihlášení'

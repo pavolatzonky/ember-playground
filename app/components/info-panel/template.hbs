@@ -3,6 +3,6 @@
     {{t "InfoPanel.login-account"}} <span class="underline info-panel__nickname">{{@nickname}}</span>
   </span>
   <span class="info-panel__logged-at-section">
-    {{t "InfoPanel.last-login"}} <span class="underline info-panel__logged-at">{{format-date @timestamp outputFormat="dd/MM/yyyy, HH:mm:ss"}}</span>
+    {{t "InfoPanel.last-login"}} <span class="underline info-panel__logged-at">{{format-date this.lastLoginAt outputFormat="HH:mm"}}</span>
   </span>
 </section>

@@ -7,18 +7,28 @@ module('Integration | Component | info-panel', function(hooks) {
   setupRenderingTest(hooks, page);
 
   test('it renders', async function(assert) {
+    const time = new Date();
+    let hours = time.getHours();
+    let minutes = time.getMinutes();
+    if (minutes < 10) {
+      minutes = `0${minutes}`;
+    }
+
     await this.render(hbs`
-      <InfoPanel />
+      <InfoPanel
+        @nickname="Magda"
+      />
     `);
 
     assert.equal(
-      document.querySelector('.info-panel__nickname').text.trim(),
+      document.querySelector('.info-panel__nickname').innerText.trim(),
       'Magda',
       'Nickname is ok.'
     );
     assert.equal(
-      document.querySelector('.info-panel__logged-at'),
-      'Last login time is present.'
+      document.querySelector('.info-panel__logged-at').innerText,
+      `${hours}:${minutes}`,
+      'Last login time is okay.'
     );
   });
 });

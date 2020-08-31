@@ -6,14 +6,7 @@
   />
 
   <div class="py-4 flex-1 overflow-y-scroll channel-messages-list" role="list">
-    {{#each this.messages as |message| }}
-      <Message
-        @avatarSrc={{message.avatarSrc}}
-        @sender={{message.sender}}
-        @timestamp={{message.timestamp}}
-        @messageBody={{message.messageBody}}
-      />
-    {{/each}}
+    <Messages @messages={{this.messages}}/>
   </div>
 
   <footer class="pb-6 px-4 flex-none channel-footer">

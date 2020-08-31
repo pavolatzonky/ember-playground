@@ -21,10 +21,12 @@
   </div>
 
   <footer class="pb-6 px-4 flex-none channel-footer">
-    <MessageForm/>
+    <MessageForm
+      @name="general"
+    />
   </footer>
   <InfoPanel
-  @nickname="Bára"
-  @timestamp={{this.lastLoginAt}}
+    @nickname="Bára"
+    @timestamp={{this.lastLoginAt}}
   />
 </main>

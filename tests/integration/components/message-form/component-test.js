@@ -7,7 +7,9 @@ module('Integration | Component | message-form', function(hooks) {
 
   test('it renders', async function(assert) {
     await this.render(hbs`
-      <MessageForm/>
+      <MessageForm
+        @name="general"
+      />
     `);
 
     assert.ok(
@@ -16,7 +18,7 @@ module('Integration | Component | message-form', function(hooks) {
     );
     assert.equal(
       document.querySelector('.channel-footer__message-input').placeholder,
-      'Message #general',
+      'Message # general',
       'Input placeholder is ok'
     );
     assert.equal(

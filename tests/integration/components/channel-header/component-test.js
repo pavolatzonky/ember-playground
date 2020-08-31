@@ -1,6 +1,7 @@
 import { module, test } from 'qunit';
 import { hbs } from 'ember-cli-htmlbars';
 import setupRenderingTest from '../../../helpers/setup-rendering-test';
+import { find } from '@ember/test-helpers';
 
 module('Integration | Component | channel-header', function(hooks) {
   setupRenderingTest(hooks);
@@ -16,13 +17,14 @@ module('Integration | Component | channel-header', function(hooks) {
       />
     `);
 
+    assert.ok(find('[data-test-channel-header]'), 'Header exists');
     assert.equal(
-      document.querySelector('.channel-header__title').innerText.trim(),
+      find('[data-test-channel-header="title"]').innerText.trim(),
       '#channel name',
       'Title is present'
     );
     assert.equal(
-      document.querySelector('.channel-header__description').innerText.trim(),
+      find('[data-test-channel-header="description"]').innerText.trim(),
       'channel description',
       'Description is present'
     );

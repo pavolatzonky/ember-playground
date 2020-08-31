@@ -9,8 +9,16 @@ module('Integration | Component | info-panel', function(hooks) {
     this.set('user', { nickname: 'Imhotep' });
 
     const now = new Date();
-    const hours = now.getHours();
-    const minutes = now.getMinutes();
+    let hours = now.getHours();
+    let minutes = now.getMinutes();
+
+    if (hours < 10) {
+      hours = `0${hours}`;
+    }
+
+    if (minutes < 10) {
+      minutes = `0${minutes}`;
+    }
 
     await this.render(hbs`
       <InfoPanel @user={{this.user}} />

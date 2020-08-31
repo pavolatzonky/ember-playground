@@ -6,6 +6,7 @@ module('Integration | Component | info-panel', function(hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function(assert) {
+    this.set('me', { nickname: 'Bára' });
     const time = new Date();
     const hours = time.getHours();
     let minutes = time.getMinutes();
@@ -15,7 +16,7 @@ module('Integration | Component | info-panel', function(hooks) {
 
     await this.render(hbs`
       <InfoPanel
-        @nickname="Bára"
+        @user={{this.me}}
       />
     `);
 

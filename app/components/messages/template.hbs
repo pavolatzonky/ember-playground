@@ -1,0 +1,8 @@
+{{#each @messages as |message|}}
+  <Message
+    @avatarSrc={{message.avatarSrc}}
+    @sender={{message.sender}}
+    @timestamp={{message.timestamp}}
+    @messageBody={{message.messageBody}}
+  />
+{{/each}}

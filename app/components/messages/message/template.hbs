@@ -1,20 +1,20 @@
 <div class="flex items-start px-6 py-2 text-sm hover-target hover:bg-grey-lightest message" role="listitem">
   <figure class="w-10 h-10 rounded overflow-hidden mr-3">
-    <img class="message__user-avatar" src={{@avatarSrc}} alt="Avatar">
+    <img data-test-message="avatar" src={{@avatarSrc}} alt="Avatar">
   </figure>
 
   <div class="flex-1">
     <h5 class="text-sm">
-      <a href="#" class="message__user-name text-black font-bold no-underline hover:underline">
+      <a href="#" class="text-black font-bold no-underline hover:underline" data-test-message="username">
         {{@sender}}
       </a>
       <span class="sr-only">at</span>
-      <time class="message__timestamp text-grey-darker text-xs font-normal">
+      <time class="text-grey-darker text-xs font-normal" data-test-message="timestamp">
         {{format-date @timestamp outputFormat="dd/MM/yyyy, HH:mm:ss"}}
       </time>
     </h5>
 
-    <p class="message__body text-black leading-normal">
+    <p class="text-black leading-normal" data-test-message="body">
       {{@messageBody}}
     </p>
   </div>

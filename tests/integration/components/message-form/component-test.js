@@ -1,6 +1,7 @@
 import { module, test } from 'qunit';
 import { hbs } from 'ember-cli-htmlbars';
 import setupRenderingTest from '../../../helpers/setup-rendering-test';
+import { find } from '@ember/test-helpers';
 
 module('Integration | Component | message-form', function(hooks) {
   setupRenderingTest(hooks);
@@ -13,19 +14,17 @@ module('Integration | Component | message-form', function(hooks) {
     `);
 
     assert.ok(
-      document.querySelector('.channel-footer__message-input'),
+      find('[data-test-message-form="message-input"]'),
       'Input is present'
     );
     assert.equal(
-      document.querySelector('.channel-footer__message-input').placeholder,
+      find('[data-test-message-form="message-input"]').placeholder,
       'Message #general',
       'Input placeholder is ok'
     );
     assert.equal(
-      document
-        .querySelector('.channel-footer__message-send-button')
-        .textContent.trim(),
-      'Send',
+      find('[data-test-message-form="message-send-button"]').innerText.trim(),
+      'SEND',
       'Button text is ok'
     );
   });

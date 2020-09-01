@@ -2,6 +2,7 @@ import { module, test } from 'qunit';
 import setupRenderingTest from 'ember-playground/tests/helpers/setup-rendering-test';
 import { hbs } from 'ember-cli-htmlbars';
 import page from 'ember-playground/tests/pages/components/info-panel';
+import { find } from '@ember/test-helpers';
 
 module('Integration | Component | info-panel', function(hooks) {
   setupRenderingTest(hooks, page);
@@ -22,12 +23,12 @@ module('Integration | Component | info-panel', function(hooks) {
     `);
 
     assert.equal(
-      document.querySelector('.info-panel__nickname').innerText.trim(),
+      find('[data-test-info-panel="nickname"]').innerText.trim(),
       'Magda',
       'Nickname is ok.'
     );
     assert.equal(
-      document.querySelector('.info-panel__logged-at').innerText,
+      find('[data-test-info-panel="timestamp"]').innerText,
       `${hours}:${minutes}`,
       'Last login time is okay.'
     );

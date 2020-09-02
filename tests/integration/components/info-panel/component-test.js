@@ -1,12 +1,13 @@
 import { module, test } from 'qunit';
 import { hbs } from 'ember-cli-htmlbars';
 import setupRenderingTest from '../../../helpers/setup-rendering-test';
+import page from '../../../pages/components/info-panel';
 
 module('Integration | Component | info-panel', function(hooks) {
-  setupRenderingTest(hooks);
+  setupRenderingTest(hooks, page);
 
   test('it renders', async function(assert) {
-    this.set('user', { nickname: 'Imhotep' });
+    this.set('user', { nickname: 'Honza' });
 
     const now = new Date();
     let hours = now.getHours();
@@ -25,17 +26,13 @@ module('Integration | Component | info-panel', function(hooks) {
     `);
 
     assert.equal(
-      document
-        .querySelector('.info-panel__logged-as-section')
-        .textContent.trim(),
-      'Logged in as Imhotep',
+      this.page.nickname.text.trim(),
+      'Honza',
       'Logged as section is ok'
     );
     assert.equal(
-      document
-        .querySelector('.info-panel__logged-at-section')
-        .textContent.trim(),
-      `Last login at ${hours}:${minutes}`,
+      this.page.login.text.trim(),
+      `${hours}:${minutes}`,
       'Logged at section is ok'
     );
   });

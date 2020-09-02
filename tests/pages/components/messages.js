@@ -1,5 +1,6 @@
 import { collection } from 'ember-cli-page-object';
+import message from './message';
 
 export default {
-  messages: collection('[data-test-message="index"]'),
+  messages: collection(message.scope),
 };

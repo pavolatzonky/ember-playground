@@ -1,6 +1,7 @@
 import { attribute, text } from 'ember-cli-page-object';
 
 export default {
+  scope: '[data-test-message="index"]',
   avatar: {
     scope: '[data-test-message="user-avatar"]',
     src: attribute('src'),

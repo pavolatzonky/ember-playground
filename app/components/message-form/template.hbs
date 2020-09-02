@@ -16,6 +16,7 @@
   <input
     id="message-input"
     class="channel-footer__message-input w-full px-4"
+    data-test-channel-footer="message-input"
     placeholder={{t "MessageForm.message" channelName=(channel-name @name)}}
     type="text"
   >
@@ -23,7 +24,9 @@
   <button
     type="button"
     disabled
-    class="channel-footer__message-send-button font-bold uppercase opacity-50 bg-grey-dark border-teal-dark p-2">
+    class="channel-footer__message-send-button font-bold uppercase opacity-50 bg-grey-dark border-teal-dark p-2"
+    data-test-channel-footer="message-send-button"
+    >
     {{t "MessageForm.send"}}
   </button>
 </form>

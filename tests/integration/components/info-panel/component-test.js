@@ -21,12 +21,12 @@ module('Integration | Component | info-panel', function(hooks) {
     `);
 
     assert.equal(
-      document.querySelector('.info-panel__nickname').innerText,
+      document.querySelector('[data-test-info-panel="nickname"]').innerText,
       'Bára',
       'Nickname is ok'
     );
     assert.equal(
-      document.querySelector('.info-panel__logged-at').innerText,
+      document.querySelector('[data-test-info-panel="logged-at"]').innerText,
       `${hours}:${minutes}`,
       'Login time is ok'
     );

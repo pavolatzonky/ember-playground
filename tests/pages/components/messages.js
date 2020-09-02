@@ -1,6 +1,8 @@
-import { attribute } from 'ember-cli-page-object';
+import { collection } from 'ember-cli-page-object';
+import message from './message';
 
 export default {
-  message: '[data-test-message="index"]',
-  length: attribute('length'),
+  messages: collection(message.scope, {
+    ...message,
+  }),
 };

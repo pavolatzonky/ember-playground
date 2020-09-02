@@ -30,9 +30,11 @@ module('Integration | Component | messages', function(hooks) {
     />`);
 
     assert.equal(
-      this.page.message.length,
+      this.page.messages.length,
       2,
       'There is one message shown for every item in the message array'
     );
+
+    assert.equal(this.page.messages[1].name, 'Mike Nort');
   });
 });

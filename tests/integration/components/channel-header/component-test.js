@@ -1,10 +1,10 @@
 import { module, test } from 'qunit';
 import { hbs } from 'ember-cli-htmlbars';
 import setupRenderingTest from '../../../helpers/setup-rendering-test';
-import { find } from '@ember/test-helpers';
+import page from '../../../pages/components/channel-header';
 
 module('Integration | Component | channel-header', function(hooks) {
-  setupRenderingTest(hooks);
+  setupRenderingTest(hooks, page);
 
   test('it renders', async function(assert) {
     this.set('name', 'channel name');
@@ -17,21 +17,12 @@ module('Integration | Component | channel-header', function(hooks) {
       />
     `);
 
-    assert.ok(find('[data-test-channel-header]'), 'Header exists');
-    assert.equal(
-      find('[data-test-channel-header="title"]').innerText.trim(),
-      '#channel name',
-      'Title is present'
-    );
+    assert.ok(this.page.isPresent, 'Channel header component exists');
+    assert.equal(this.page.title.text, '#channel name', 'Title is ok');
+    assert.equal(this.page.title.name, 'my-title', 'Title name attr is ok');
 
     assert.equal(
-      find('[data-test-channel-header="title"]').innerText.trim(),
-      '#channel name',
-      'Title is present'
-    );
-
-    assert.equal(
-      find('[data-test-channel-header="description"]').innerText.trim(),
+      this.page.description.text,
       'channel description',
       'Description is present'
     );

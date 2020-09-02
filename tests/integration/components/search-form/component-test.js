@@ -1,18 +1,22 @@
 import { module, test } from 'qunit';
 import { hbs } from 'ember-cli-htmlbars';
 import setupRenderingTest from '../../../helpers/setup-rendering-test';
+import page from '../../../pages/components/search-form';
 
 module('Integration | Component | search-form', function(hooks) {
-  setupRenderingTest(hooks);
+  setupRenderingTest(hooks, page);
 
   test('it renders', async function(assert) {
-
     await this.render(hbs`
       <SearchForm/>
     `);
 
-    assert.ok(document.querySelector('form'), 'Form is present');
-    assert.ok(document.querySelector('.search-form__button'), 'Input is present');
-    assert.equal(document.querySelector('.search-form__field').placeholder, 'Search', 'Search input placeholder is ok');
+    assert.ok(this.page.isPresent, 'Form is present');
+    assert.ok(this.page.button.isPresent, 'Input is present');
+    assert.equal(
+      this.page.field.placeholder,
+      'Search',
+      'Search input placeholder is ok'
+    );
   });
 });

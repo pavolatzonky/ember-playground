@@ -1,9 +1,10 @@
 import { module, test } from 'qunit';
 import { hbs } from 'ember-cli-htmlbars';
 import setupRenderingTest from '../../../helpers/setup-rendering-test';
+import page from '../../../pages/components/messages';
 
 module('Integration | Component | messages', function(hooks) {
-  setupRenderingTest(hooks);
+  setupRenderingTest(hooks, page);
 
   test('it renders', async function(assert) {
     this.set('messages', [
@@ -29,7 +30,7 @@ module('Integration | Component | messages', function(hooks) {
     />`);
 
     assert.equal(
-      document.querySelectorAll('.message').length,
+      this.page.message.length,
       2,
       'There is one message shown for every item in the message array'
     );

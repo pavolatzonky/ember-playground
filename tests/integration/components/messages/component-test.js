@@ -18,7 +18,7 @@ module('Integration | Component | messages', function(hooks) {
       {
         avatarSrc:
           'https://en.gravatar.com/userimage/4584631/86f74019598950f6efd7b1b8e493259a.jpeg',
-        sender: 'Mike Nort',
+        sender: 'Mike North',
         timestamp: new Date(2020, 11, 30, 12, 1, 54),
         messageBody:
           'Hello developer, I looked at your profile and am impressed by your 14 years of COBOL experience. Are you happy in your current role?',
@@ -34,5 +34,7 @@ module('Integration | Component | messages', function(hooks) {
       2,
       'There is one message shown for every item in the message array'
     );
+
+    assert.equal(this.page.messages[1].name, 'Mike North');
   });
 });

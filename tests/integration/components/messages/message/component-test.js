@@ -1,9 +1,9 @@
 import { module, test } from 'qunit';
 import { hbs } from 'ember-cli-htmlbars';
 import setupRenderingTest from '../../../../helpers/setup-rendering-test';
-import page from '../../../../pages/components/message';
+import page from '../../../../pages/components/messages/message';
 
-module('Integration | Component | message', function(hooks) {
+module('Integration | Component | messages/message', function(hooks) {
   setupRenderingTest(hooks, page);
 
   test('it renders', async function(assert) {

@@ -1,8 +1,9 @@
 <ul class="py-2 flex justify-evenly bg-grey-2 uppercase" data-test-channels="list">
-  <li data-test-channels="list-item">
-    <LinkTo @route="channels.channel" @model="general" data-test-channels="list-item-name">general</LinkTo>
-  </li>
-  <li data-test-channels="list-item">
-    <LinkTo @route="channels.channel" @model="random" data-test-channels="list-item-name">random</LinkTo>
-  </li>
+  {{#each @channels as |channel|}}
+    <li data-test-channels="list-item">
+      <LinkTo @route="channels.channel" @model={{channel.id}} data-test-channels="list-item-name">
+        {{channel.name}}
+      </LinkTo>
+    </li>
+  {{/each}}
 </ul>

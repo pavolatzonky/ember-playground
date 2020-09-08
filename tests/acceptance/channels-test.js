@@ -10,7 +10,8 @@ module('Acceptance | channels', function(hooks) {
     await channels.visit();
 
     assert.equal(channels.list[0].name.text, 'general');
-    assert.equal(channels.list[1].name.text, 'random');
+    assert.equal(channels.list[1].name.text, 'dev');
+    assert.equal(channels.list[2].name.text, 'random');
 
     assert.equal(currentURL(), '/channels', 'URL is ok');
   });
@@ -20,6 +21,6 @@ module('Acceptance | channels', function(hooks) {
 
     await channels.list[0].name.click();
 
-    assert.equal(currentURL(), '/channels/general', 'URL is ok');
+    assert.equal(currentURL(), '/channels/1', 'URL is ok');
   });
 });

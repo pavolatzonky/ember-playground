@@ -3,11 +3,11 @@ import config from './config/environment';
 
 export default class Router extends EmberRouter {
   location = config.locationType;
-  rootURL = config.rootURL
-};
+  rootURL = config.rootURL;
+}
 
 Router.map(function() {
-  // this.route('master-page', function() {
-  //   this.route('nested-page');
-  // });
+  this.route('channels', function() {
+    this.route('channel', { path: '/:channel_id' });
+  });
 });

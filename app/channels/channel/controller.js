@@ -1,6 +1,6 @@
 import Controller from '@ember/controller';
 
-export default class ApplicationController extends Controller {
+export default class ChannelsController extends Controller {
   messages = [
     {
       avatarSrc:

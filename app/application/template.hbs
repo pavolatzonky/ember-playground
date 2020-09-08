@@ -1,16 +1,1 @@
-<main class="flex-1 flex flex-col bg-white overflow-hidden channel">
-
-  <ChannelHeader
-    @name="general"
-    @description="Just some general people generally chatting about general things"
-  />
-
-  <div class="py-4 flex-1 overflow-y-scroll channel-messages-list" role="list">
-    <Messages @messages={{this.messages}} />
-  </div>
-
-  <footer class="pb-6 px-4 flex-none channel-footer">
-    <MessageForm />
-    <InfoPanel @user={{hash nickname="Honza"}} />
-  </footer>
-</main>
+{{outlet}}

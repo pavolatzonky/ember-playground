@@ -1,5 +1,6 @@
 import RouteRecognizer from 'route-recognizer';
 import users from 'ember-playground/mirage/routes/users';
+import channels from 'ember-playground/mirage/routes/channels';
 
 import fetchify from './utils/fetch';
 
@@ -38,4 +39,5 @@ export default function() {
   fetchify(this);
 
   users(this);
+  channels(this);
 }

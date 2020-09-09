@@ -1,12 +1,3 @@
-import DS from 'ember-data';
+import JSONSerializer from '@ember-data/serializer/json';
 
-const { JSONSerializer } = DS;
-
-export default class ApplicationSerializer extends JSONSerializer {
-  normalizeSingleResponse(store, primaryModelClass, payload, id) {
-    if (payload) {
-      payload.id = payload.id || id || '1';
-    }
-    return super.normalizeSingleResponse(...arguments);
-  }
-}
+export default class ApplicationSerializer extends JSONSerializer {}

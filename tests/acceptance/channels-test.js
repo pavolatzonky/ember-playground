@@ -21,6 +21,6 @@ module('Acceptance | channels', function(hooks) {
 
     await channels.list[0].name.click();
 
-    assert.equal(currentURL(), '/channels/1', 'URL is ok');
+    assert.equal(currentURL(), '/channels/general', 'URL is ok');
   });
 });

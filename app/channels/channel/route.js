@@ -1,8 +1,12 @@
 import Route from '@ember/routing/route';
 
 export default class ChannelsChannelRoute extends Route {
-  async model() {
-    return [
+  async model(params) {
+    return this.store.peekRecord('channel', params.channel_id);
+  }
+
+  async afterModel(channel) {
+    channel.set('messages', [
       {
         avatarSrc:
           'https://gravatar.com/avatar/96c332a96737c6668906232e39cb16ef?s=200',
@@ -18,6 +22,6 @@ export default class ChannelsChannelRoute extends Route {
         messageBody:
           'Hello developer, I looked at your profile and am impressed by your 14 years of COBOL experience. Are you happy in your current role?',
       },
-    ];
+    ]);
   }
 }

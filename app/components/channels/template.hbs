@@ -1,7 +1,7 @@
 <ul class="py-2 flex justify-evenly bg-grey-2 uppercase" data-test-channels="list">
   {{#each @channels as |channel|}}
     <li data-test-channels="list-item">
-      <LinkTo @route="channels.channel" @model={{channel.id}} data-test-channels="list-item-name">
+      <LinkTo @route="channels.channel" @model={{channel}} data-test-channels="list-item-name">
         {{channel.name}}
       </LinkTo>
     </li>

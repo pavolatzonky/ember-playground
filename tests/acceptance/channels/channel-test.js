@@ -1,6 +1,7 @@
 import { module, test } from 'qunit';
 import { currentURL } from '@ember/test-helpers';
 import setupApplicationTest from '../../helpers/setup-application-test';
+import channels from '../../pages/channels';
 import channel from '../../pages/channels/channel';
 
 module('Acceptance | channels/channel', function(hooks) {
@@ -29,6 +30,32 @@ module('Acceptance | channels/channel', function(hooks) {
     assert.equal(
       channel.messages.messages.length,
       2,
+      'Two messages are displayed'
+    );
+  });
+
+  test('switching channels causes /channels/channel content to change', async function(assert) {
+    await channel.visit();
+
+    assert.equal(currentURL(), '/channels/general');
+
+    await channels.list[1].name.click();
+
+    assert.equal(
+      channel.channelHeader.title.text,
+      '#dev',
+      'Channel header title has changed'
+    );
+    assert.equal(
+      channel.channelHeader.description.text,
+      'Very serious channel for developers only',
+      'Channel header description has changed'
+    );
+
+    // otestovanie noveho obsahu messages
+    assert.equal(
+      channel.messages.messages.length,
+      3,
       'Two messages are displayed'
     );
   });

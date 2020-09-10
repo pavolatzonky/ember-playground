@@ -1,4 +1,4 @@
-<ul class="py-2 flex justify-evenly bg-grey-2 uppercase" data-test-channels="list">
+<ul class="py-2 flex justify-evenly bg-grey-2 uppercase" local-class="menu" data-test-channels="list">
   {{#each @channels as |channel|}}
     <li data-test-channels="list-item">
       <LinkTo @route="channels.channel" @model={{channel}} data-test-channels="list-item-name">

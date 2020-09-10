@@ -1,0 +1,6 @@
+.menu a {
+  @apply no-underline;
+}
+.menu :global(.active) {
+  @apply underline;
+}

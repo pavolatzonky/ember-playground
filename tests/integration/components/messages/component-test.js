@@ -10,33 +10,35 @@ module('Integration | Component | messages', function(hooks) {
   setupRenderingTest(hooks, page);
 
   test('it renders', async function(assert) {
+    const message1 = this.push('message', {
+      id: 2,
+      timestamp: new Date(2020, 11, 30, 12, 1, 54).toISOString(),
+      messageBody:
+        'Professional network? Haha, you have no professional network!',
+      channelId: 'general',
+      sender: 1,
+    });
+
+    const message2 = this.push('message', {
+      id: 3,
+      timestamp: new Date(2021, 11, 30, 12, 1, 54).toISOString(),
+      messageBody: `I didn't mean you Mike.`,
+      channelId: 'general',
+      sender: 1,
+    });
+
+    const message3 = this.push('message', {
+      id: 1,
+      timestamp: new Date(2019, 11, 30, 12, 1, 54).toISOString(),
+      messageBody: 'Would you like to join my professional network?',
+      channelId: 'general',
+      sender: 2,
+    });
+
     this.set(
       'messages',
       ArrayProxy.create({
-        content: A([
-          {
-            avatarSrc:
-              'https://gravatar.com/avatar/96c332a96737c6668906232e39cb16ef?s=200',
-            sender: 'Lisa Huang-North',
-            timestamp: new Date(2020, 11, 30, 12, 1, 54),
-            messageBody:
-              'Professional network? Haha, you have no professional network!',
-          },
-          {
-            avatarSrc:
-              'https://en.gravatar.com/userimage/4584631/86f74019598950f6efd7b1b8e493259a.jpeg',
-            sender: 'Lisa Huang-North',
-            timestamp: new Date(2021, 11, 30, 12, 1, 54),
-            messageBody: `I didn't mean you Mike.`,
-          },
-          {
-            avatarSrc:
-              'https://en.gravatar.com/userimage/4584631/86f74019598950f6efd7b1b8e493259a.jpeg',
-            sender: 'Mike Nort',
-            timestamp: new Date(2019, 11, 30, 12, 1, 54),
-            messageBody: 'Would you like to join my professional network?',
-          },
-        ]),
+        content: A([message1, message2, message3]),
       })
     );
 

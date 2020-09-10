@@ -1,8 +1,5 @@
 {{#each this.sortedMessages as |message|}}
   <Messages::Message
-    @avatarSrc={{message.avatarSrc}}
-    @sender={{message.sender}}
-    @timestamp={{message.timestamp}}
-    @messageBody={{message.messageBody}}
+    @message={{message}}
   />
 {{/each}}

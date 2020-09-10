@@ -7,27 +7,33 @@ module('Integration | Component | messages/message', function(hooks) {
   setupRenderingTest(hooks, page);
 
   test('it renders', async function(assert) {
-    this.set(
-      'avatarSrc',
-      'https://gravatar.com/avatar/96c332a96737c6668906232e39cb16ef?s=200h'
-    );
-    this.set('senderName', 'Lisa Huang-North');
-    this.set('timestamp', new Date(2019, 1, 12, 7, 31, 14));
-    this.set('messageBody', 'A dummy message text');
+    this.push('user', {
+      id: 1454,
+      name: 'John Travolta',
+      avatarSrc:
+        'https://gravatar.com/avatar/96c332a96737c6668906232e39cb16ef?s=200',
+    });
+
+    const message = this.push('message', {
+      id: 1,
+      timestamp: new Date(2019, 1, 12, 7, 31, 14).toISOString(),
+      messageBody: 'A dummy message text',
+      channelId: 'dev',
+      sender: 1454,
+    });
+
+    this.set('message', message);
 
     await this.render(hbs`<Messages::Message
-      @avatarSrc={{this.avatarSrc}}
-      @sender={{this.senderName}}
-      @timestamp={{this.timestamp}}
-      @messageBody={{this.messageBody}}
+      @message={{this.message}}
     />`);
 
     assert.equal(
       this.page.avatar.src,
-      'https://gravatar.com/avatar/96c332a96737c6668906232e39cb16ef?s=200h',
+      'https://gravatar.com/avatar/96c332a96737c6668906232e39cb16ef?s=200',
       'Avatar src is ok'
     );
-    assert.equal(this.page.name, 'Lisa Huang-North', 'Author name is ok');
+    assert.equal(this.page.name, 'John Travolta', 'Author name is ok');
     assert.equal(
       this.page.timestamp.text.trim(),
       '12/02/2019, 07:31:14',

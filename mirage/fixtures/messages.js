@@ -1,4 +1,5 @@
 export default [
+  // general
   {
     avatarSrc:
       'https://gravatar.com/avatar/96c332a96737c6668906232e39cb16ef?s=200',
@@ -16,6 +17,8 @@ export default [
       'Hello developer, I looked at your profile and am impressed by your 14 years of COBOL experience. Are you happy in your current role?',
     channelId: 'general',
   },
+
+  // dev
   {
     avatarSrc:
       'https://gravatar.com/avatar/96c332a96737c6668906232e39cb16ef?s=200',
@@ -28,7 +31,7 @@ export default [
     avatarSrc:
       'https://en.gravatar.com/userimage/4584631/86f74019598950f6efd7b1b8e493259a.jpeg',
     sender: 'Mike Nort',
-    timestamp: new Date(2019, 1, 12, 8, 48, 50),
+    timestamp: new Date(2019, 1, 12, 6, 48, 50),
     messageBody: 'It will take us forever',
     channelId: 'dev',
   },

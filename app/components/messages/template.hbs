@@ -1,4 +1,4 @@
-{{#each @messages as |message|}}
+{{#each this.sortedMessages as |message|}}
   <Messages::Message
     @avatarSrc={{message.avatarSrc}}
     @sender={{message.sender}}

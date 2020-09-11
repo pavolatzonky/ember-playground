@@ -1,6 +1,7 @@
 import { module, test } from 'qunit';
 import { currentURL } from '@ember/test-helpers';
 import setupApplicationTest from '../../helpers/setup-application-test';
+import serviceUnavailable from '../../../mirage/responses/service-unavailable';
 import channels from '../../pages/channels';
 import channel from '../../pages/channels/channel';
 
@@ -57,6 +58,20 @@ module('Acceptance | channels/channel', function(hooks) {
       channel.messages.messages.length,
       3,
       'Two messages are displayed'
+    );
+  });
+
+  test('shows error message when loading messages fails', async function(assert) {
+    this.server.get('/messages', () => {
+      return serviceUnavailable();
+    });
+
+    await channel.visit();
+
+    assert.equal(
+      channel.error.error,
+      'Channel messages could not be loaded',
+      'Error message is ok'
     );
   });
 });

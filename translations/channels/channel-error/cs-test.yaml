@@ -1,0 +1,2 @@
+Channels::ChannelError:
+  error: 'Zprávy kanálu nelze načíst'

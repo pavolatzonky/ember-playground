@@ -93,6 +93,9 @@ module.exports = {
         xl: '1rem',
         '2xl': '1.5rem',
       },
+      animation: {
+        'spin-slow': 'spin 3s linear infinite',
+      },
     },
   },
   variants: {

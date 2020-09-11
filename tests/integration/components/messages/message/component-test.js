@@ -9,7 +9,8 @@ module('Integration | Component | messages/message', function(hooks) {
   test('it renders', async function(assert) {
     this.push('user', {
       id: 1454,
-      name: 'John Travolta',
+      firstname: 'John',
+      lastname: 'Travolta',
       avatarSrc:
         'https://gravatar.com/avatar/96c332a96737c6668906232e39cb16ef?s=200',
     });

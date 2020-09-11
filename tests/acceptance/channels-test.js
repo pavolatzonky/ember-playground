@@ -9,9 +9,9 @@ module('Acceptance | channels', function(hooks) {
   test('visiting /channels', async function(assert) {
     await channels.visit();
 
-    assert.equal(channels.list[0].name.text, 'general');
-    assert.equal(channels.list[1].name.text, 'dev');
-    assert.equal(channels.list[2].name.text, 'random');
+    assert.equal(channels.list[0].name.text, '#general');
+    assert.equal(channels.list[1].name.text, '#dev');
+    assert.equal(channels.list[2].name.text, '#random');
 
     assert.equal(currentURL(), '/channels', 'URL is ok');
   });

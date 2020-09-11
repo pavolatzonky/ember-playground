@@ -32,12 +32,12 @@ module('Integration | Component | channels', function(hooks) {
 
     assert.equal(
       this.page.list[0].name.text,
-      'channel-1',
+      '#channel-1',
       'name of the first channel is ok'
     );
     assert.equal(
       this.page.list[1].name.text,
-      'channel-2',
+      '#channel-2',
       'name of the second channel is ok'
     );
   });

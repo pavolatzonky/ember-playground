@@ -13,13 +13,13 @@
 
   <label for="message-input" class="sr-only">Message</label>
 
-  <input
-    id="message-input"
-    class="w-full px-4"
-    data-test-channel-footer="message-input"
+  <Input
+    {{on "input" this.updateMessageBody}}
     placeholder={{t "MessageForm.message" channelName=(channel-name "general")}}
     type="text"
-  >
+    class="w-full px-4"
+    data-test-channel-footer="message-input"
+  />
 
   <button
     type="button"

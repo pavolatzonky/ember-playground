@@ -1,4 +1,4 @@
-import { module, test } from 'qunit';
+import { module, test, todo } from 'qunit';
 import { currentURL } from '@ember/test-helpers';
 import setupApplicationTest from '../../helpers/setup-application-test';
 import serviceUnavailable from '../../../mirage/responses/service-unavailable';
@@ -57,7 +57,7 @@ module('Acceptance | channels/channel', function(hooks) {
     assert.equal(
       channel.messages.messages.length,
       3,
-      'Two messages are displayed'
+      'Three messages are displayed'
     );
   });
 
@@ -72,6 +72,29 @@ module('Acceptance | channels/channel', function(hooks) {
       channel.error.error,
       'Channel messages could not be loaded',
       'Error message is ok'
+    );
+  });
+
+  todo('shows a message being sent (successful scenario)', async function(
+    assert
+  ) {
+    await channel.visit();
+
+    assert.equal(currentURL(), '/channels/general');
+
+    await channel.messageForm.messageInput.fillIn('My new message');
+    await channel.messageForm.sendButton.click();
+
+    assert.equal(
+      channel.messages.messages.length,
+      3,
+      'Three messages are displayed'
+    );
+
+    assert.equal(
+      channel.messages.messages[2].body,
+      'My new message',
+      'Body of the third (currently added) message is shown'
     );
   });
 });

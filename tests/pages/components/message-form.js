@@ -8,5 +8,6 @@ export default {
 
   sendButton: {
     scope: '[data-test-channel-footer="message-send-button"]',
+    disabled: attribute('disabled'),
   },
 };

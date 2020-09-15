@@ -1,5 +1,12 @@
 export default [
   {
+    id: 'me',
+    firstname: 'Honza',
+    lastname: 'Novotný',
+    avatarSrc:
+      'https://1.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=200',
+  },
+  {
     id: 1,
     firstname: 'Lisa',
     lastname: 'Huang-North',

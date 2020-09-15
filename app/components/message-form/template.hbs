@@ -15,6 +15,7 @@
 
   <Input
     {{on "input" this.updateMessageBody}}
+    @value={{this.messageBody}}
     placeholder={{t "MessageForm.message" channelName=(channel-name "general")}}
     type="text"
     class="w-full px-4"
@@ -22,9 +23,10 @@
   />
 
   <button
+    {{on "click" (perform this.sendMessageTask)}}
     type="button"
-    disabled
-    class="font-bold uppercase opacity-50 bg-grey-dark border-teal-dark p-2"
+    disabled={{or this.isMessageBodyAbsent this.sendMessageTask.isRunning}}
+    class="{{if (or this.isMessageBodyAbsent this.sendMessageTask.isRunning) "opacity-50"}} font-bold uppercase bg-grey-dark border-teal-dark p-2"
     data-test-channel-footer="message-send-button"
   >
     {{t "MessageForm.send"}}

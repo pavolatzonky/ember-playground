@@ -1,5 +1,7 @@
-import { module, test, todo } from 'qunit';
+import { module, test } from 'qunit';
 import { hbs } from 'ember-cli-htmlbars';
+import { timeout } from 'ember-concurrency';
+
 import setupRenderingTest from '../../../helpers/setup-rendering-test';
 import page from '../../../pages/components/message-form';
 
@@ -29,8 +31,8 @@ module('Integration | Component | message-form', function(hooks) {
     );
   });
 
-  todo('it sends a new message (successful scenario)', async function(assert) {
-    assert.expect(2);
+  test('it sends a new message (successful scenario)', async function(assert) {
+    assert.expect(4);
 
     this.set('sendMessage', async newMessage => {
       assert.equal(
@@ -39,17 +41,13 @@ module('Integration | Component | message-form', function(hooks) {
         'message body present on the new message'
       );
 
-      assert.ok(
-        this.page.sendButton.disabled,
-        'Send button is disabled as message is being sent'
-      );
-
-      return true; // simulates success
+      //return true; // simulates success
+      await timeout(1000);
     });
 
     await this.render(hbs`
       <MessageForm
-        @onMessageSend={{this.sendMessage}}
+        @onSendMessage={{this.sendMessage}}
       />
     `);
 
@@ -59,11 +57,12 @@ module('Integration | Component | message-form', function(hooks) {
 
     await this.page.sendButton.click();
 
-    assert.notOk(
-      this.page.sendButton.disabled,
-      'Send button is enabled after message was sent successfuly'
-    );
+    assert.equal(this.page.messageInput.value, '', 'input is cleared');
 
-    assert.equal(this.page.messageInput.value(), '', 'input is cleared');
+    assert.equal(
+      this.page.sendButton.disabled,
+      'disabled',
+      'Send button is disabled after message was sent successfuly'
+    );
   });
 });

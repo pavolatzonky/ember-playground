@@ -34,9 +34,9 @@ module('Integration | Component | message-form', function(hooks) {
   test('it sends a new message (successful scenario)', async function(assert) {
     assert.expect(4);
 
-    this.set('sendMessage', async newMessage => {
+    this.set('sendMessage', async messageBody => {
       assert.equal(
-        newMessage.messageBody,
+        messageBody,
         'New message',
         'message body present on the new message'
       );

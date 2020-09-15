@@ -1,9 +1,11 @@
 <ul class="py-2 flex justify-evenly bg-grey-2 font-bold" local-class="menu" data-test-channels="list">
   {{#each @channels as |channel|}}
     <li data-test-channels="list-item">
-      <LinkTo @route="channels.channel" @model={{channel}} data-test-channels="list-item-name">
+      <LinkTo @route="channels.channel" @model={{channel.id}} data-test-channels="list-item-name">
         {{channel-name channel.name}}
       </LinkTo>
     </li>
   {{/each}}
 </ul>
+
+{{!-- tím channel.id vynutíme, že se v route bude volat jak model tak after model hook --}}

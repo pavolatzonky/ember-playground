@@ -10,7 +10,10 @@ export default function(mirage) {
 
   mirage.post('/messages', ({ db }, request) => {
     const data = parseJSON(request);
+    data.timestamp = new Date().toISOString();
     const newMessage = db.messages.insert(data);
     return ok(newMessage);
   });
 }
+
+//v našich datech chybí timestamp, proto před uložením zprávy do pole musíme nastavit timestamp na datech

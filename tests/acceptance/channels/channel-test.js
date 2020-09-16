@@ -79,7 +79,7 @@ module('Acceptance | channels/channel', function(hooks) {
   });
 
   test('shows a message being sent (successful scenario)', async function(assert) {
-    assert.expect(10);
+    assert.expect(9);
 
     await channel.visit();
 
@@ -87,12 +87,6 @@ module('Acceptance | channels/channel', function(hooks) {
 
     this.server.post('/messages', ({ db }, request) => {
       const data = parseJSON(request);
-
-      assert.equal(
-        data.timestamp.substring(0, 18),
-        new Date().toISOString().substring(0, 18),
-        'Server receives timestamp in the request (accuracy: to seconds)'
-      );
 
       assert.equal(
         data.messageBody,
@@ -112,6 +106,7 @@ module('Acceptance | channels/channel', function(hooks) {
         'Server receives sender ID in the request'
       );
 
+      data.timestamp = new Date().toISOString();
       const newMessage = db.messages.insert(data);
       return ok(newMessage);
     });

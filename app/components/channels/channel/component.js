@@ -10,11 +10,10 @@ export default class ChannelsChannelComponent extends Component {
   async onSendMessage(messageBody) {
     const newMessage = this.store.createRecord('message', {
       messageBody,
-      timestamp: new Date(),
       sender: this.args.model.user,
       channel: this.args.model.channel,
     });
+    await newMessage.save();
     this.args.model.newMessages.pushObject(newMessage);
-    newMessage.save();
   }
 }

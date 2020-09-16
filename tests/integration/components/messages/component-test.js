@@ -15,7 +15,7 @@ module('Integration | Component | messages', function(hooks) {
       timestamp: new Date(2020, 11, 30, 12, 1, 54).toISOString(),
       messageBody:
         'Professional network? Haha, you have no professional network!',
-      channelId: 'general',
+      channel: 'general',
       sender: 1,
     });
 
@@ -23,7 +23,7 @@ module('Integration | Component | messages', function(hooks) {
       id: 3,
       timestamp: new Date(2021, 11, 30, 12, 1, 54).toISOString(),
       messageBody: `I didn't mean you Mike.`,
-      channelId: 'general',
+      channel: 'general',
       sender: 1,
     });
 
@@ -31,7 +31,7 @@ module('Integration | Component | messages', function(hooks) {
       id: 1,
       timestamp: new Date(2019, 11, 30, 12, 1, 54).toISOString(),
       messageBody: 'Would you like to join my professional network?',
-      channelId: 'general',
+      channel: 'general',
       sender: 2,
     });
 

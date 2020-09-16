@@ -12,7 +12,7 @@ export default class ChannelsChannelComponent extends Component {
       messageBody,
       timestamp: new Date(),
       sender: this.args.model.user,
-      channelId: this.args.model.channel,
+      channel: this.args.model.channel,
     });
     this.args.model.newMessages.pushObject(newMessage);
     newMessage.save();

@@ -101,7 +101,7 @@ module('Acceptance | channels/channel', function(hooks) {
       );
 
       assert.equal(
-        data.channelId,
+        data.channel,
         'general',
         'Server receives channel ID in the request'
       );

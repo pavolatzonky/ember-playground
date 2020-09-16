@@ -19,7 +19,7 @@ module('Integration | Component | messages/message', function(hooks) {
       id: 1,
       timestamp: new Date(2019, 1, 12, 7, 31, 14).toISOString(),
       messageBody: 'A dummy message text',
-      channelId: 'dev',
+      channel: 'dev',
       sender: 1454,
     });
 

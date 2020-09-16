@@ -3,8 +3,8 @@ import parseJSON from '../utils/parse-json';
 
 export default function(mirage) {
   mirage.get('/messages', ({ db }, request) => {
-    const channelId = request.queryParams.channelId;
-    const messages = db.messages.where({ channelId }); // = channelId: channelId
+    const channel = request.queryParams.channel;
+    const messages = db.messages.where({ channel }); // = channel: channel
     return ok(messages);
   });
 

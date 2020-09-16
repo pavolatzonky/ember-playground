@@ -12,7 +12,7 @@ export default class ChannelsChannelRoute extends Route {
     // = { channel }
     const user = this.modelFor('application');
     const messages = await this.store.query('message', {
-      channelId: model.channel.id,
+      channel: model.channel.id,
     });
     model.messages = messages; // nastaveno na celém objektu;
     model.user = user;
@@ -20,7 +20,7 @@ export default class ChannelsChannelRoute extends Route {
       content: A([]),
     });
 
-    // return this.store.query('message', { channelId: channel.id }).then((messages)=>{
+    // return this.store.query('message', { channel: channel.id }).then((messages)=>{
     //   channel.set('messages', messages);
     // });
   }

@@ -20,6 +20,6 @@ export default class ChannelsChannelComponent extends Component {
       sender: this.args.model.user,
     });
     this.newMessages.pushObject(newMessage);
-    await timeout(1000);
+    await timeout(10);
   }
 }

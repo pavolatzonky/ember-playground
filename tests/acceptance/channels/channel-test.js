@@ -1,8 +1,9 @@
-import { module, test } from 'qunit';
+import { module, test, todo } from 'qunit';
 import { currentURL } from '@ember/test-helpers';
 import format from 'date-fns/format';
 import setupApplicationTest from '../../helpers/setup-application-test';
 import serviceUnavailable from '../../../mirage/responses/service-unavailable';
+import parseJSON from '../../../mirage/utils/parse-json';
 import channels from '../../pages/channels';
 import channel from '../../pages/channels/channel';
 
@@ -76,10 +77,45 @@ module('Acceptance | channels/channel', function(hooks) {
     );
   });
 
-  test('shows a message being sent (successful scenario)', async function(assert) {
+  todo('shows a message being sent (successful scenario)', async function(
+    assert
+  ) {
+    assert.expect(9);
+
     await channel.visit();
 
     assert.equal(currentURL(), '/channels/general');
+
+    this.server.post('/messages', ({ db }, request) => {
+      const data = parseJSON(request);
+
+      assert.equal(
+        data.timestamp.substring(0, 18),
+        new Date().toISOString().substring(0, 18),
+        'Server receives timestamp in the request (accuracy: to seconds)'
+      );
+
+      assert.equal(
+        data.messageBody,
+        'My new message',
+        'Server receives message body in the request'
+      );
+
+      assert.equal(
+        data.channelId,
+        'general',
+        'Server receives channel ID in the request'
+      );
+
+      assert.equal(
+        data.sender,
+        'me',
+        'Server receives sender ID in the request'
+      );
+
+      const newMessage = db.messages.insert(data);
+      return ok(newMessage);
+    });
 
     await channel.messageForm.messageInput.fillIn('My new message');
     await channel.messageForm.sendButton.click();

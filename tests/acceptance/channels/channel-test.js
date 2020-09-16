@@ -1,8 +1,9 @@
-import { module, test, todo } from 'qunit';
+import { module, test } from 'qunit';
 import { currentURL } from '@ember/test-helpers';
 import format from 'date-fns/format';
 import setupApplicationTest from '../../helpers/setup-application-test';
 import serviceUnavailable from '../../../mirage/responses/service-unavailable';
+import ok from '../../../mirage/responses/ok';
 import parseJSON from '../../../mirage/utils/parse-json';
 import channels from '../../pages/channels';
 import channel from '../../pages/channels/channel';
@@ -77,10 +78,8 @@ module('Acceptance | channels/channel', function(hooks) {
     );
   });
 
-  todo('shows a message being sent (successful scenario)', async function(
-    assert
-  ) {
-    assert.expect(9);
+  test('shows a message being sent (successful scenario)', async function(assert) {
+    assert.expect(10);
 
     await channel.visit();
 

@@ -5,4 +5,5 @@ export default class MessageModel extends Model {
   @attr('date') timestamp;
   @attr('string') messageBody;
   @belongsTo('user', { async: true }) sender;
+  @belongsTo('channel', { async: true }) channelId;
 }

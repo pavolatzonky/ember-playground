@@ -1,5 +1,5 @@
-import { module, test, todo } from 'qunit';
-import { currentURL } from '@ember/test-helpers';
+import { module, test } from 'qunit';
+import { currentURL, waitUntil } from '@ember/test-helpers';
 import format from 'date-fns/format';
 import setupApplicationTest from '../../helpers/setup-application-test';
 import serviceUnavailable from '../../../mirage/responses/service-unavailable';
@@ -78,28 +78,15 @@ module('Acceptance | channels/channel', function(hooks) {
     );
   });
 
-  todo('shows a message being sent (successful scenario)', async function(
-    assert
-  ) {
-    assert.expect(12);
+  test('shows a message being sent (successful scenario)', async function(assert) {
+    assert.expect(10);
 
     await channel.visit();
 
     assert.equal(currentURL(), '/channels/general');
 
-    this.server.post('/messages', ({ db }, request) => {
+    this.server.post('/messages', async ({ db }, request) => {
       const data = parseJSON(request);
-
-      assert.equal(
-        channel.messages.messages.length,
-        3,
-        'Three messages are displayed, the new one is already on UI'
-      );
-
-      assert.ok(
-        channel.messages.messages[2].isSemiTransparent,
-        'The currently sent message is semi-transparent'
-      );
 
       assert.equal(
         data.timestamp.substring(0, 18),
@@ -131,12 +118,15 @@ module('Acceptance | channels/channel', function(hooks) {
     });
 
     await channel.messageForm.messageInput.fillIn('My new message');
-    await channel.messageForm.sendButton.click();
+    channel.messageForm.sendButton.click();
 
-    assert.equal(
-      channel.messages.messages.length,
-      3,
-      'Three messages are displayed'
+    await waitUntil(function() {
+      return channel.messages.messages.length === 3;
+    });
+
+    assert.ok(
+      channel.messages.messages[2].isSemiTransparent,
+      'The currently sent message is semi-transparent'
     );
 
     assert.equal(
@@ -163,5 +153,9 @@ module('Acceptance | channels/channel', function(hooks) {
       format(new Date(), 'dd/MM/yyyy, HH:mm'),
       'Creation time is displayed'
     );
+
+    await waitUntil(function() {
+      return !channel.messages.messages[2].isSemiTransparent;
+    });
   });
 });

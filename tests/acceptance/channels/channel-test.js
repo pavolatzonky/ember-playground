@@ -1,4 +1,4 @@
-import { module, test } from 'qunit';
+import { module, test, todo } from 'qunit';
 import { currentURL } from '@ember/test-helpers';
 import format from 'date-fns/format';
 import setupApplicationTest from '../../helpers/setup-application-test';
@@ -78,8 +78,10 @@ module('Acceptance | channels/channel', function(hooks) {
     );
   });
 
-  test('shows a message being sent (successful scenario)', async function(assert) {
-    assert.expect(9);
+  todo('shows a message being sent (successful scenario)', async function(
+    assert
+  ) {
+    assert.expect(12);
 
     await channel.visit();
 
@@ -87,6 +89,23 @@ module('Acceptance | channels/channel', function(hooks) {
 
     this.server.post('/messages', ({ db }, request) => {
       const data = parseJSON(request);
+
+      assert.equal(
+        channel.messages.messages.length,
+        3,
+        'Three messages are displayed, the new one is already on UI'
+      );
+
+      assert.ok(
+        channel.messages.messages[2].isSemiTransparent,
+        'The currently sent message is semi-transparent'
+      );
+
+      assert.equal(
+        data.timestamp.substring(0, 18),
+        new Date().toISOString().substring(0, 18),
+        'Server receives timestamp in the request (accuracy: to seconds) althoug re-set on BE'
+      );
 
       assert.equal(
         data.messageBody,

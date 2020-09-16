@@ -19,3 +19,5 @@ export default class ChannelsChannelRoute extends Route {
     // });
   }
 }
+
+//vracíme tu channel jako součást objektu, kam si pak dáme ještě user a messages

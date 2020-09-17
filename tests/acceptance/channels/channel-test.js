@@ -1,4 +1,4 @@
-import { module, test } from 'qunit';
+import { module, test, todo } from 'qunit';
 import { currentURL, waitUntil } from '@ember/test-helpers';
 import format from 'date-fns/format';
 import setupApplicationTest from '../../helpers/setup-application-test';
@@ -78,7 +78,7 @@ module('Acceptance | channels/channel', function(hooks) {
     );
   });
 
-  test('shows a message being sent (successful scenario)', async function(assert) {
+  test('sends new message (successful scenario)', async function(assert) {
     assert.expect(10);
 
     await channel.visit();
@@ -157,6 +157,27 @@ module('Acceptance | channels/channel', function(hooks) {
     await waitUntil(function() {
       return !channel.messages.messages[2].isSemiTransparent;
     });
+  });
+
+  todo('sends new message (failure scenario)', async function(assert) {
+    assert.expect(2);
+
+    await channel.visit();
+
+    assert.equal(currentURL(), '/channels/general');
+
+    this.server.post('/messages', async () => {
+      return serviceUnavailable();
+    });
+
+    await channel.messageForm.messageInput.fillIn('My new message');
+    await channel.messageForm.sendButton.click();
+
+    assert.equal(
+      channel.messages.messages.length,
+      2,
+      "Message which couldn't be saved to BE disappears from UI"
+    );
   });
 
   test('deletes a message (successful scenario)', async function(assert) {

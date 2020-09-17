@@ -158,4 +158,16 @@ module('Acceptance | channels/channel', function(hooks) {
       return !channel.messages.messages[2].isSemiTransparent;
     });
   });
+
+  test('deletes a message (successful scenario)', async function(assert) {
+    await channel.visit();
+
+    await channel.messages.messages[1].deleteButton.click();
+
+    assert.equal(
+      channel.messages.messages.length,
+      1,
+      'One message is displayed'
+    );
+  });
 });

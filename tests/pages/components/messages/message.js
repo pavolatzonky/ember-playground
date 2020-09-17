@@ -17,4 +17,8 @@ export default {
   },
 
   body: text('[data-test-message="body"]'),
+
+  deleteButton: {
+    scope: '[data-test-message="delete"]',
+  },
 };

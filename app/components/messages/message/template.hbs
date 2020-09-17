@@ -20,8 +20,10 @@
   </div>
 
   <button
+   {{on "click" (perform this.deleteMessageTask)}}
     type="button"
-    class="message__delete-button border-transparent hover:border-red-light show-on-hover hover:bg-red-lightest border-1 rounded mb-1 pl-3 pr-2 py-1"
+    class="border-transparent hover:border-red-light show-on-hover hover:bg-red-lightest border-1 rounded mb-1 pl-3 pr-2 py-1"
+    data-test-message="delete"
     aria-label="delete message">
     🗑
   </button>

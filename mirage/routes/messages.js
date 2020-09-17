@@ -13,7 +13,11 @@ export default function(mirage) {
     data.timestamp = new Date().toISOString();
     const newMessage = db.messages.insert(data);
     return ok(newMessage);
+    //v našich datech chybí timestamp, proto před uložením zprávy do pole musíme nastavit timestamp na datech
+  });
+
+  mirage.delete('/messages/:id', ({ db }, request) => {
+    db.messages.remove(request.params.id);
+    return ok();
   });
 }
-
-//v našich datech chybí timestamp, proto před uložením zprávy do pole musíme nastavit timestamp na datech

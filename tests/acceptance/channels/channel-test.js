@@ -1,4 +1,4 @@
-import { module, test, todo } from 'qunit';
+import { module, test } from 'qunit';
 import { currentURL, waitUntil } from '@ember/test-helpers';
 import format from 'date-fns/format';
 import setupApplicationTest from '../../helpers/setup-application-test';
@@ -159,7 +159,7 @@ module('Acceptance | channels/channel', function(hooks) {
     });
   });
 
-  todo('sends new message (failure scenario)', async function(assert) {
+  test('sends new message (failure scenario)', async function(assert) {
     assert.expect(2);
 
     await channel.visit();

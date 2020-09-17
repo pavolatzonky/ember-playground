@@ -15,7 +15,12 @@ export default class ChannelsChannelComponent extends Component {
       timestamp: new Date(),
     });
     this.args.model.newMessages.pushObject(newMessage);
-    await newMessage.save();
+    try {
+      await newMessage.save();
+    } catch (e) {
+      this.args.model.newMessages.removeObject(newMessage);
+      throw e;
+    }
   }
 
   @action

@@ -1,4 +1,5 @@
 import ok from '../responses/ok';
+//import serviceUnavailable from '../responses/service-unavailable';
 import parseJSON from '../utils/parse-json';
 
 export default function(mirage) {
@@ -9,6 +10,7 @@ export default function(mirage) {
   });
 
   mirage.post('/messages', ({ db }, request) => {
+    //return serviceUnavailable();
     const data = parseJSON(request);
     data.timestamp = new Date().toISOString();
     const newMessage = db.messages.insert(data);

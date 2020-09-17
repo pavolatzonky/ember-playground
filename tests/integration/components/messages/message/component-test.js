@@ -7,7 +7,7 @@ module('Integration | Component | messages/message', function(hooks) {
   setupRenderingTest(hooks, page);
 
   test('it renders own message', async function(assert) {
-    this.push('user', {
+    const user = this.push('user', {
       id: 1454,
       firstname: 'John',
       lastname: 'Travolta',
@@ -23,10 +23,12 @@ module('Integration | Component | messages/message', function(hooks) {
       sender: 1454,
     });
 
+    this.set('user', user);
     this.set('message', message);
 
     await this.render(hbs`<Messages::Message
       @message={{this.message}}
+      @loggedUser={{this.user}}
     />`);
 
     assert.equal(

@@ -17,4 +17,10 @@ export default class ChannelsChannelComponent extends Component {
     this.args.model.newMessages.pushObject(newMessage);
     await newMessage.save();
   }
+
+  @action
+  async onDeletionMessage(message) {
+    this.args.model.newMessages.removeObject(message);
+    await message.destroyRecord();
+  }
 }

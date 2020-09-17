@@ -4,6 +4,6 @@ import { task } from 'ember-concurrency-decorators';
 export default class MessagesMessageComponent extends Component {
   @task
   *deleteMessageTask() {
-    yield this.args.message.destroyRecord();
+    yield this.args.onDeletionMessage(this.args.message);
   }
 }

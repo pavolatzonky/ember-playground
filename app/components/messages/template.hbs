@@ -1,5 +1,7 @@
 {{#each this.sortedMessages as |message|}}
   <Messages::Message
     @message={{message}}
+    @loggedUser={{@loggedUser}}
+    @onDeletionMessage={{@onDeletionMessage}}
   />
 {{/each}}

@@ -19,12 +19,14 @@
     </p>
   </div>
 
-  <button
-   {{on "click" (perform this.deleteMessageTask)}}
-    type="button"
-    class="border-2 border-transparent hover:border-red rounded mb-1 px-2 py-1"
-    data-test-message="delete"
-    aria-label="delete message">
-    🗑
-  </button>
+  {{#if (eq @message.sender.id @loggedUser.id)}}
+    <button
+      {{on "click" (perform this.deleteMessageTask)}}
+      type="button"
+      class="border-2 border-transparent hover:border-red rounded mb-1 px-2 py-1"
+      data-test-message="delete"
+      aria-label="delete message">
+      🗑
+    </button>
+  {{/if}}
 </div>

@@ -162,12 +162,15 @@ module('Acceptance | channels/channel', function(hooks) {
   test('deletes a message (successful scenario)', async function(assert) {
     await channel.visit();
 
-    await channel.messages.messages[1].deleteButton.click();
+    await channel.messageForm.messageInput.fillIn('My new message');
+    await channel.messageForm.sendButton.click();
+
+    await channel.messages.messages[2].deleteButton.click();
 
     assert.equal(
       channel.messages.messages.length,
-      1,
-      'One message is displayed'
+      2,
+      'Two messages are displayed after deletion'
     );
   });
 });

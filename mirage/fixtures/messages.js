@@ -7,7 +7,7 @@ export default [
     sender: 1,
   },
   {
-    timestamp: new Date(2020, 11, 30, 12, 1, 54).toISOString(),
+    timestamp: new Date(2020, 7, 30, 12, 1, 54).toISOString(),
     messageBody: '1 October, I guess',
     channel: 'general',
     sender: 2,

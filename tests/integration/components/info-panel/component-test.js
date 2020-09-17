@@ -7,7 +7,16 @@ module('Integration | Component | info-panel', function(hooks) {
   setupRenderingTest(hooks, page);
 
   test('it renders', async function(assert) {
-    this.set('user', { nickname: 'Honza' });
+    //this.set('user', { firstname: 'Honza', lastname: 'Novotný' }); > tohle je obyčejný objekt, ne ten embrovský model, takže by na něm nešlo najít to fullname
+
+    this.set(
+      'user',
+      this.push('user', {
+        firstname: 'Honza',
+        lastname: 'Novotný',
+        id: 1,
+      })
+    );
 
     const now = new Date();
     let hours = now.getHours();

@@ -1,1 +1,2 @@
 Messages::Message:
+  error: 'Failed to delete message'

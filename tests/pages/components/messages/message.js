@@ -21,4 +21,8 @@ export default {
   deleteButton: {
     scope: '[data-test-message="delete"]',
   },
+
+  errorMessage: {
+    scope: '[data-test-message="error-message"]',
+  },
 };

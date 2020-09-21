@@ -1,5 +1,5 @@
 import { module, test } from 'qunit';
-import { currentURL, waitUntil } from '@ember/test-helpers';
+import { currentURL, waitUntil, setupOnerror } from '@ember/test-helpers';
 import format from 'date-fns/format';
 import setupApplicationTest from '../../helpers/setup-application-test';
 import serviceUnavailable from '../../../mirage/responses/service-unavailable';
@@ -160,7 +160,7 @@ module('Acceptance | channels/channel', function(hooks) {
   });
 
   test('sends new message (failure scenario)', async function(assert) {
-    assert.expect(2);
+    assert.expect(3);
 
     await channel.visit();
 
@@ -168,6 +168,14 @@ module('Acceptance | channels/channel', function(hooks) {
 
     this.server.post('/messages', async () => {
       return serviceUnavailable();
+    });
+
+    setupOnerror(error => {
+      assert.equal(
+        error.errors[0].status,
+        '503',
+        'Propagated error is correct'
+      );
     });
 
     await channel.messageForm.messageInput.fillIn('My new message');
@@ -192,6 +200,40 @@ module('Acceptance | channels/channel', function(hooks) {
       channel.messages.messages.length,
       2,
       'Two messages are displayed after deletion'
+    );
+  });
+
+  test('deletes a message (failure)', async function(assert) {
+    assert.expect(3);
+    await channel.visit();
+
+    this.server.delete('/messages/:id', () => {
+      return serviceUnavailable();
+    });
+
+    setupOnerror(error => {
+      assert.equal(
+        error.errors[0].status,
+        '503',
+        'Propagated error is correct'
+      );
+    });
+
+    await channel.messageForm.messageInput.fillIn('My new message');
+    await channel.messageForm.sendButton.click();
+
+    await channel.messages.messages[2].deleteButton.click();
+
+    assert.equal(
+      channel.messages.messages.length,
+      3,
+      'Three messages are displayed'
+    );
+
+    assert.equal(
+      channel.messages.messages[2].errorMessage.text,
+      'Failed to delete message',
+      'Error message is displayed'
     );
   });
 });

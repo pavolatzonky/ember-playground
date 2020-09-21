@@ -4,7 +4,7 @@ import { timeout } from 'ember-concurrency';
 import { setupOnerror } from '@ember/test-helpers';
 
 import setupRenderingTest from '../../../../../helpers/setup-rendering-test';
-import page from '../../../../../pages/channels/channel/message-form';
+import page from '../../../../../pages/components/channels/channel/message-form';
 
 module('Integration | Component | channels/channel/message-form', function(
   hooks

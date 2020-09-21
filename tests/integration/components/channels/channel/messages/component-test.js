@@ -4,7 +4,7 @@ import { A } from '@ember/array';
 import ArrayProxy from '@ember/array/proxy';
 
 import setupRenderingTest from '../../../../../helpers/setup-rendering-test';
-import page from '../../../../../pages/channels/channel/messages';
+import page from '../../../../../pages/components/channels/channel/messages';
 
 module('Integration | Component | channels/channel/messages', function(hooks) {
   setupRenderingTest(hooks, page);

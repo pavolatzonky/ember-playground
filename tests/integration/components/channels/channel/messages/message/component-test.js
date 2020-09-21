@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { hbs } from 'ember-cli-htmlbars';
 import setupRenderingTest from '../../../../../../helpers/setup-rendering-test';
-import page from '../../../../../../pages/channels/channel/messages/message';
+import page from '../../../../../../pages/components/channels/channel/messages/message';
 
 module('Integration | Component | channels/channel/messages/message', function(
   hooks

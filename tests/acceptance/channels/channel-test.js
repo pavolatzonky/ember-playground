@@ -16,18 +16,18 @@ module('Acceptance | channels/channel', function(hooks) {
 
     assert.equal(currentURL(), '/channels/general');
 
-    assert.ok(channel.channelHeader.isPresent, 'Channel Header is present.');
+    assert.ok(channel.header.isPresent, 'Channel Header is present.');
     assert.ok(channel.messages.isPresent, 'Messages are present.');
     assert.ok(channel.messageForm.isPresent, 'Message form is present.');
     assert.ok(channel.infoPanel.isPresent, 'Info panel is present.');
 
     assert.equal(
-      channel.channelHeader.title.text,
+      channel.header.title.text,
       '#general',
       'Channel header title is okay'
     );
     assert.equal(
-      channel.channelHeader.description.text,
+      channel.header.description.text,
       'Just some general people generally chatting about general things',
       'Channel header description is okay'
     );
@@ -47,12 +47,12 @@ module('Acceptance | channels/channel', function(hooks) {
     await channels.list[1].name.click();
 
     assert.equal(
-      channel.channelHeader.title.text,
+      channel.header.title.text,
       '#dev',
       'Channel header title has changed'
     );
     assert.equal(
-      channel.channelHeader.description.text,
+      channel.header.description.text,
       'Very serious channel for developers only',
       'Channel header description has changed'
     );

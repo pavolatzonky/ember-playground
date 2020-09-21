@@ -36,7 +36,7 @@ module('Integration | Component | channels/channel', function(hooks) {
       @model={{this.model}}
     />`);
 
-    assert.ok(page.channelHeader.isPresent, 'Channel Header is present.');
+    assert.ok(page.header.isPresent, 'Channel Header is present.');
     assert.ok(page.messages.isPresent, 'Messages are present.');
     assert.ok(page.messageForm.isPresent, 'Message form is present.');
     assert.ok(page.infoPanel.isPresent, 'Info panel is present.');

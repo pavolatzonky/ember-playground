@@ -1,9 +1,11 @@
 import { module, test } from 'qunit';
 import { hbs } from 'ember-cli-htmlbars';
-import setupRenderingTest from '../../../helpers/setup-rendering-test';
-import page from '../../../pages/components/channel-header';
+import setupRenderingTest from '../../../../../helpers/setup-rendering-test';
+import page from '../../../../../pages/channels/channel/channel-header';
 
-module('Integration | Component | channel-header', function(hooks) {
+module('Integration | Component | channels/channel/channel-header', function(
+  hooks
+) {
   setupRenderingTest(hooks, page);
 
   test('it renders', async function(assert) {
@@ -11,7 +13,7 @@ module('Integration | Component | channel-header', function(hooks) {
     this.set('description', 'channel description');
 
     await this.render(hbs`
-      <ChannelHeader
+      <Channels::Channel::ChannelHeader
         @name={{this.name}}
         @description={{this.description}}
       />

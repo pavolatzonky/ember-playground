@@ -1,4 +1,4 @@
-<ChannelHeader
+<Channels::Channel::ChannelHeader
   @name={{@model.channel.name}}
   @description={{@model.channel.description}}
 />
@@ -18,6 +18,6 @@
 </div>
 
 <footer class="pb-6 px-4 flex-none channel-footer">
-  <MessageForm @onSendMessage={{this.onSendMessage}} />
+  <Channels::Channel::MessageForm @onSendMessage={{this.onSendMessage}} />
   <Channels::Channel::InfoPanel @user={{@model.user}} />
 </footer>

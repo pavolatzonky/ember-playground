@@ -1,7 +1,7 @@
 import { create, visitable } from 'ember-cli-page-object';
-import channelHeader from '../components/channel-header';
+import channelHeader from './channel/channel-header';
 import messages from '../components/messages';
-import messageForm from '../components/message-form';
+import messageForm from './channel/message-form';
 import infoPanel from './channel/info-panel';
 import error from '../components/error';
 

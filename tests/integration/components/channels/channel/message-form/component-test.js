@@ -3,15 +3,17 @@ import { hbs } from 'ember-cli-htmlbars';
 import { timeout } from 'ember-concurrency';
 import { setupOnerror } from '@ember/test-helpers';
 
-import setupRenderingTest from '../../../helpers/setup-rendering-test';
-import page from '../../../pages/components/message-form';
+import setupRenderingTest from '../../../../../helpers/setup-rendering-test';
+import page from '../../../../../pages/channels/channel/message-form';
 
-module('Integration | Component | message-form', function(hooks) {
+module('Integration | Component | channels/channel/message-form', function(
+  hooks
+) {
   setupRenderingTest(hooks, page);
 
   test('it renders', async function(assert) {
     await this.render(hbs`
-      <MessageForm />
+      <Channels::Channel::MessageForm />
     `);
 
     assert.ok(this.page.messageInput.isPresent, 'Input is present');
@@ -47,7 +49,7 @@ module('Integration | Component | message-form', function(hooks) {
     });
 
     await this.render(hbs`
-      <MessageForm
+      <Channels::Channel::MessageForm
         @onSendMessage={{this.sendMessage}}
       />
     `);
@@ -79,7 +81,7 @@ module('Integration | Component | message-form', function(hooks) {
     });
 
     await this.render(hbs`
-      <MessageForm
+      <Channels::Channel::MessageForm
         @onSendMessage={{this.sendMessage}}
       />
     `);

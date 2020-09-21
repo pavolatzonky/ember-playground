@@ -3,7 +3,7 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { task } from 'ember-concurrency-decorators';
 
-export default class MessageFormComponent extends Component {
+export default class ChannelsChannelMessageFormComponent extends Component {
   @tracked
   messageBody = '';
 

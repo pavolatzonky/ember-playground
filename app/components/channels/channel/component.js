@@ -25,7 +25,7 @@ export default class ChannelsChannelComponent extends Component {
 
   @action
   async onDeletionMessage(message) {
-    this.args.model.newMessages.removeObject(message);
     await message.destroyRecord();
+    this.args.model.newMessages.removeObject(message);
   }
 }

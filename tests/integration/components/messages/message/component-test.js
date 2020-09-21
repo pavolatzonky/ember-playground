@@ -82,4 +82,37 @@ module('Integration | Component | messages/message', function(hooks) {
 
     assert.notOk(this.page.deleteButton.isPresent, 'Delete button is absent');
   });
+
+  test('it renders new message', async function(assert) {
+    const channel = this.push('channel', {
+      name: 'dev',
+      description: 'development talk',
+    });
+
+    const user = this.push('user', {
+      id: 1454,
+      firstname: 'John',
+      lastname: 'Travolta',
+      avatarSrc:
+        'https://gravatar.com/avatar/96c332a96737c6668906232e39cb16ef?s=200',
+    });
+
+    const message = this.store.createRecord('message', {
+      //id: 1, = create record doesn't need id, because it's only on frontend
+      timestamp: new Date(2019, 1, 12, 7, 31, 14),
+      messageBody: 'A dummy message text',
+      channel,
+      sender: user,
+    });
+
+    this.set('user', user);
+    this.set('message', message);
+
+    await this.render(hbs`<Messages::Message
+      @message={{this.message}}
+      @loggedUser={{this.user}}
+    />`);
+
+    assert.ok(this.page.isSemiTransparent, 'Message is semi-transparent');
+  });
 });

@@ -3,10 +3,10 @@ import { hbs } from 'ember-cli-htmlbars';
 import { A } from '@ember/array';
 import ArrayProxy from '@ember/array/proxy';
 
-import setupRenderingTest from '../../../helpers/setup-rendering-test';
-import page from '../../../pages/components/messages';
+import setupRenderingTest from '../../../../../helpers/setup-rendering-test';
+import page from '../../../../../pages/channels/channel/messages';
 
-module('Integration | Component | messages', function(hooks) {
+module('Integration | Component | channels/channel/messages', function(hooks) {
   setupRenderingTest(hooks, page);
 
   test('it renders', async function(assert) {
@@ -42,7 +42,7 @@ module('Integration | Component | messages', function(hooks) {
       })
     );
 
-    await this.render(hbs`<Messages
+    await this.render(hbs`<Channels::Channel::Messages
       @messages={{this.messages}}
     />`);
 

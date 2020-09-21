@@ -31,6 +31,7 @@ module('Acceptance | channels/channel', function(hooks) {
       'Just some general people generally chatting about general things',
       'Channel header description is okay'
     );
+
     assert.equal(
       channel.messages.messages.length,
       2,

@@ -1,2 +1,2 @@
-Messages::Message:
+Channels::Channel::Messages::Message:
   error: 'Odeslání zprávy selhalo'

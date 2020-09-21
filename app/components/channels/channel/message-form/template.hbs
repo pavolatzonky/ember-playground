@@ -19,7 +19,7 @@
     placeholder={{t "Channels::Channel::MessageForm.message" channelName=(channel-name "general")}}
     type="text"
     class="w-full px-4"
-    data-test-channel-footer="message-input"
+    data-test-channels-channel-message-form="message-input"
   />
 
   <button
@@ -27,7 +27,7 @@
     type="button"
     disabled={{or this.isMessageBodyAbsent this.sendMessageTask.isRunning}}
     class="{{if (or this.isMessageBodyAbsent this.sendMessageTask.isRunning) "opacity-50"}} font-bold uppercase bg-grey-dark border-teal-dark p-2"
-    data-test-channel-footer="message-send-button"
+    data-test-channels-channel-message-form="message-send-button"
   >
     {{t "Channels::Channel::MessageForm.send"}}
   </button>

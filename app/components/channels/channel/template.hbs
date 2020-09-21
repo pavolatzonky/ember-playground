@@ -4,13 +4,13 @@
 />
 
 <div class="py-4 flex-1 overflow-y-scroll channel-messages-list" role="list">
-  <Messages
+  <Channels::Channel::Messages
     @messages={{@model.messages}}
     @loggedUser={{@model.user}}
     @onDeletionMessage={{this.onDeletionMessage}}
   />
 
-  <Messages
+  <Channels::Channel::Messages
     @messages={{@model.newMessages}}
     @loggedUser={{@model.user}}
     @onDeletionMessage={{this.onDeletionMessage}}

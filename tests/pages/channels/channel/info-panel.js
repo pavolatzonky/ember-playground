@@ -1,9 +1,9 @@
 export default {
   nickname: {
-    scope: '[data-test-info-panel="nickname"]',
+    scope: '[data-test-channels-channel-info-panel="nickname"]',
   },
 
   login: {
-    scope: '[data-test-info-panel="logged-at"]',
+    scope: '[data-test-channels-channel-info-panel="logged-at"]',
   },
 };

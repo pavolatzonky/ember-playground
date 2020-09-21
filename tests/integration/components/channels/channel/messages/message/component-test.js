@@ -1,9 +1,11 @@
 import { module, test } from 'qunit';
 import { hbs } from 'ember-cli-htmlbars';
-import setupRenderingTest from '../../../../helpers/setup-rendering-test';
-import page from '../../../../pages/components/messages/message';
+import setupRenderingTest from '../../../../../../helpers/setup-rendering-test';
+import page from '../../../../../../pages/channels/channel/messages/message';
 
-module('Integration | Component | messages/message', function(hooks) {
+module('Integration | Component | channels/channel/messages/message', function(
+  hooks
+) {
   setupRenderingTest(hooks, page);
 
   test('it renders own message', async function(assert) {
@@ -26,7 +28,7 @@ module('Integration | Component | messages/message', function(hooks) {
     this.set('user', user);
     this.set('message', message);
 
-    await this.render(hbs`<Messages::Message
+    await this.render(hbs`<Channels::Channel::Messages::Message
       @message={{this.message}}
       @loggedUser={{this.user}}
     />`);
@@ -76,7 +78,7 @@ module('Integration | Component | messages/message', function(hooks) {
 
     this.set('message', message);
 
-    await this.render(hbs`<Messages::Message
+    await this.render(hbs`<Channels::Channel::Messages::Message
       @message={{this.message}}
     />`);
 
@@ -108,7 +110,7 @@ module('Integration | Component | messages/message', function(hooks) {
     this.set('user', user);
     this.set('message', message);
 
-    await this.render(hbs`<Messages::Message
+    await this.render(hbs`<Channels::Channel::Messages::Message
       @message={{this.message}}
       @loggedUser={{this.user}}
     />`);

@@ -1,0 +1,36 @@
+<div class="{{if (or @message.isNew @message.isSaving) "opacity-50"}} flex items-start px-6 py-2 text-sm hover-target hover:bg-grey-lightest message" data-test-channels-channel-messages-message="index" role="listitem">
+  <figure class="w-10 h-10 rounded overflow-hidden mr-3">
+    <img src={{@message.sender.avatarSrc}} alt="Avatar" data-test-channels-channel-messages-message="user-avatar">
+  </figure>
+
+  <div class="flex-1">
+    <h5 class="text-sm">
+      {{#if @message.isError}}
+        <p class="text-red" data-test-channels-channel-messages-message="error-message"> {{t "Channels::Channel::Messages::Message.error"}}</p>
+      {{else}}
+        <a href="#" class="text-black font-bold no-underline hover:underline" data-test-channels-channel-messages-message="user-name">
+          {{@message.sender.fullname}}
+        </a>
+        <span class="sr-only">at</span>
+        <time class="text-grey-darker text-xs font-normal" data-test-channels-channel-messages-message="timestamp">
+          {{format-date @message.timestamp outputFormat="dd/MM/yyyy, HH:mm:ss"}}
+        </time>
+      {{/if}}
+    </h5>
+
+    <p class="message__body text-black leading-normal" data-test-channels-channel-messages-message="body">
+      {{@message.messageBody}}
+    </p>
+  </div>
+
+  {{#if (eq @message.sender.id @loggedUser.id)}}
+    <button
+      {{on "click" (perform this.deleteMessageTask)}}
+      type="button"
+      class="border-2 border-transparent hover:border-red rounded mb-1 px-2 py-1"
+      data-test-channels-channel-messages-message="delete"
+      aria-label="delete message">
+      🗑
+    </button>
+  {{/if}}
+</div>

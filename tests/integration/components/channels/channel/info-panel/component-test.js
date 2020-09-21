@@ -1,9 +1,11 @@
 import { module, test } from 'qunit';
 import { hbs } from 'ember-cli-htmlbars';
-import setupRenderingTest from '../../../helpers/setup-rendering-test';
-import page from '../../../pages/components/info-panel';
+import setupRenderingTest from '../../../../../helpers/setup-rendering-test';
+import page from '../../../../../pages/channels/channel/info-panel';
 
-module('Integration | Component | info-panel', function(hooks) {
+module('Integration | Component | channels/channel/info-panel', function(
+  hooks
+) {
   setupRenderingTest(hooks, page);
 
   test('it renders', async function(assert) {
@@ -31,7 +33,7 @@ module('Integration | Component | info-panel', function(hooks) {
     }
 
     await this.render(hbs`
-      <InfoPanel @user={{this.user}} />
+      <Channels::Channel::InfoPanel @user={{this.user}} />
     `);
 
     assert.equal(

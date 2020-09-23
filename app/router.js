@@ -10,4 +10,5 @@ Router.map(function() {
   this.route('channels', function() {
     this.route('channel', { path: '/:channel_id' });
   });
+  this.route('search');
 });

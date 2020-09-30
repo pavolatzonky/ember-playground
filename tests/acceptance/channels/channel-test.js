@@ -237,4 +237,15 @@ module('Acceptance | channels/channel', function(hooks) {
       'Error message is displayed'
     );
   });
+
+  test('it redirects user to /search when search form is filled in', async function(assert) {
+    await channel.visit();
+
+    assert.equal(currentURL(), '/channels/general');
+
+    await channel.header.searchForm.field.fillIn('forever');
+    await channel.header.searchForm.button.click();
+
+    assert.equal(currentURL(), '/search?searchTerm=forever');
+  });
 });

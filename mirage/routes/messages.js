@@ -3,11 +3,18 @@ import ok from '../responses/ok';
 import parseJSON from '../utils/parse-json';
 
 export default function(mirage) {
-  mirage.get('/messages', ({ db }, request) => {
-    const channel = request.queryParams.channel;
-    const messages = db.messages.where({ channel }); // = channel: channel
-    return ok(messages);
-  });
+  mirage.get(
+    '/messages',
+    ({ db }, { queryParams: { channel, searchTerm } }) => {
+      const messages = db.messages.filter(message => {
+        return (
+          message.channel === channel ||
+          message.messageBody.indexOf(searchTerm) > -1
+        );
+      });
+      return ok(messages);
+    }
+  );
 
   mirage.post('/messages', ({ db }, request) => {
     //return serviceUnavailable();

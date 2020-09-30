@@ -1,3 +1,9 @@
 <div class="flex items-center justify-center my-6">
-  <Channels::Channel::Header::SearchForm />
+  <Channels::Channel::Header::SearchForm @searchTerm={{@searchTerm}} />
+</div>
+
+<div class="flex-row items-center justify-center my-6">
+  <Channels::Channel::Messages
+    @messages={{@messages}} {{! messages vpravo = pole těch vyfiltrovaných zpráv}}
+  />
 </div>

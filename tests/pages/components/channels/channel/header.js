@@ -1,4 +1,5 @@
 import { attribute } from 'ember-cli-page-object';
+import searchForm from './header/search-form';
 
 export default {
   scope: '[data-test-channels-channel-header="index"]',
@@ -10,4 +11,6 @@ export default {
   description: {
     scope: '[data-test-channels-channel-header="description"]',
   },
+
+  searchForm: { ...searchForm },
 };

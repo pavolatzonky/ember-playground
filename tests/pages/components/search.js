@@ -1,4 +1,4 @@
-import searchForm from './channels/channel/header/search-form';
+import searchForm from './ui/search-form';
 import messages from './channels/channel/messages';
 
 export default {

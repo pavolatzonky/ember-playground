@@ -1,5 +1,5 @@
 import { attribute } from 'ember-cli-page-object';
-import searchForm from './header/search-form';
+import searchForm from '../../ui/search-form';
 
 export default {
   scope: '[data-test-channels-channel-header="index"]',

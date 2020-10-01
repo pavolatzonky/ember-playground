@@ -23,4 +23,11 @@ export default class SearchRoute extends Route {
 
     return { messages, searchTerm };
   }
+
+  async afterModel(model) {
+    const channels = await this.store.findAll('channel');
+    model.channels = channels;
+    const users = await this.store.findAll('user');
+    model.users = users;
+  }
 }

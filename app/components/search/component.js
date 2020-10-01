@@ -8,7 +8,7 @@ export default class SearchComponent extends Component {
   @tracked filteredChannels = A([]);
   @tracked filteredUsers = A([]);
 
-  @computed('filteredChannels.[]', 'filteredUsers.[]')
+  @computed('args.messages.[]', 'filteredChannels.[]', 'filteredUsers.[]')
   get filteredMessages() {
     return ArrayProxy.create({
       content: A(

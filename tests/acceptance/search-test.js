@@ -39,4 +39,53 @@ module('Acceptance | search', function(hooks) {
       'Search term remains as input'
     );
   });
+
+  test('filters messages by channel and user', async function(assert) {
+    await search.visit();
+
+    assert.equal(currentURL(), '/search');
+
+    await search.search.searchForm.field.fillIn('a');
+    await search.search.searchForm.button.click();
+
+    assert.equal(currentURL(), '/search?searchTerm=a');
+
+    assert.equal(
+      search.search.messages.messages.length,
+      4,
+      'Four messages filtered by search term are shown'
+    );
+
+    await search.search.checkboxesChannels[1].click();
+
+    assert.equal(
+      search.search.messages.messages.length,
+      3,
+      'Three messages filtered by search term and channel are shown'
+    );
+
+    await search.search.checkboxesUsers[2].click();
+
+    assert.equal(
+      search.search.messages.messages.length,
+      2,
+      'Two messages filtered by search term, channel, and user are shown'
+    );
+
+    await search.search.checkboxesUsers[2].click();
+
+    assert.equal(
+      search.search.messages.messages.length,
+      3,
+      'Three messages are shown again after unchecking user filter'
+    );
+
+    await search.search.checkboxesChannels[1].click();
+
+    assert.equal(
+      search.search.messages.messages.length,
+      4,
+      'Four messages are shown again after unchecking channel filter'
+    );
+  });
 });

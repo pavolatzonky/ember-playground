@@ -4,25 +4,23 @@
 
 <div class="flex justify-around px-6">
   <div>
-    <span class="font-bold">Filter by channel:</span><br>
+    <div class="font-bold">Filter by channel:</div>
     {{#each @channels as |channel index|}}
       <input {{on "click" this.filterByChannel}} type="checkbox" name="channel-{{index}}" value={{channel.id}}>
       <label for="channel-{{index}}">{{channel-name channel.name}}</label><br>
     {{/each}}
   </div>
   <div>
-    <span class="font-bold">Filter by user:</span><br>
+    <div class="font-bold">Filter by user:</div>
     {{#each @users as |user index|}}
       <input {{on "click" this.filterByUser}} type="checkbox" name="user-{{index}}" value={{user.id}}>
       <label for="user-{{index}}">{{user.fullname}}</label><br>
     {{/each}}
   </div>
-  <p>{{this.filteredUser}}</p>
-  <p>{{this.filteredChannel}}</p>
 </div>
 
 <div class="flex-row items-center justify-center my-6">
   <Channels::Channel::Messages
-    @messages={{this.filteredMessages}} {{! messages vpravo = pole těch vyfiltrovaných zpráv}}
+    @messages={{this.filteredMessages}}
   />
 </div>

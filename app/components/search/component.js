@@ -5,10 +5,10 @@ import { A } from '@ember/array';
 import ArrayProxy from '@ember/array/proxy';
 
 export default class SearchComponent extends Component {
-  @tracked filteredChannel = null;
-  @tracked filteredUser = null;
+  @tracked filteredChannels = A([]);
+  @tracked filteredUsers = A([]);
 
-  @computed('filteredChannel', 'filteredUser')
+  @computed('filteredChannels.[]', 'filteredUsers.[]')
   get filteredMessages() {
     return ArrayProxy.create({
       content: A(
@@ -16,11 +16,13 @@ export default class SearchComponent extends Component {
           let matchesChannel = true;
           let matchesUser = true;
 
-          if (this.filteredChannel) {
-            matchesChannel = message.channel.get('id') === this.filteredChannel;
+          if (this.filteredChannels.length > 0) {
+            const channelId = message.channel.get('id');
+            matchesChannel = this.filteredChannels.indexOf(channelId) > -1;
           }
-          if (this.filteredUser) {
-            matchesUser = message.sender.get('id') === this.filteredUser;
+          if (this.filteredUsers.length > 0) {
+            const userId = message.sender.get('id');
+            matchesUser = this.filteredUsers.indexOf(userId) > -1;
           }
 
           return matchesChannel && matchesUser;
@@ -30,18 +32,32 @@ export default class SearchComponent extends Component {
   }
 
   @action
-  filterByChannel(event) {
-    this.filteredChannel = event.target.value;
+  filterByChannel({ target: { value: channelId, checked: isChecked } }) {
+    //destrukturalizace
+    if (isChecked) {
+      this.filteredChannels.addObject(channelId);
+    } else {
+      this.filteredChannels.removeObject(channelId);
+    }
   }
 
   @action
-  filterByUser(event) {
-    const userId = event.target.value;
-    const isChecked = event.target.checked;
+  filterByUser({ target: { value: userId, checked: isChecked } }) {
     if (isChecked) {
-      this.filteredUser = userId;
+      this.filteredUsers.addObject(userId);
     } else {
-      this.filteredUser = null;
+      this.filteredUsers.removeObject(userId);
     }
   }
+
+  //  @action
+  //   filterByUser(event) {
+  //     const userId = event.target.value;
+  //     const isChecked = event.target.checked;
+  //     if (isChecked) {
+  //       this.filteredUsers.addObject(userId);
+  //     } else {
+  //       this.filteredUsers.removeObject(userId);
+  //     }
+  //   }
 }
